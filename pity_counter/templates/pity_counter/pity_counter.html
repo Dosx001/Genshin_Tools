@@ -1,4 +1,54 @@
 {% extends "website/base.html" %}
 {% block content %}
+  <div class="content-section">
+    <h1>Character Banner</h1>
+    <form name="count">
+      <input type="text" value=0 name="display">
+      <div>
+        <input type="button" class="btn btn-outline-info" value="+10" onclick="eval(count.display.value+=10)">
+        <button class="btn btn-outline-info">+5</button>
+        <button class="btn btn-outline-info">+1</button>
+      </div>
+    </form>
+    <div>
+      <output type=text value=0 id="value"></output>
+    </div>
+    <script type="text/javascript">
+      var x=0
+      var element = document.getElementById("value");
 
+      function buttom1() {
+        element.innerHTML = ++x;
+      }
+      function buttom2() {
+        element.innerHTML = x += 10;
+      }
+      function buttom3() {
+        element.innerHTML = x = 0;
+      }
+    </script>
+    <input type=button class="btn btn-outline-info" value="+1" onclick="buttom1()">
+    <input type=button class="btn btn-outline-info" value="+10" onclick="buttom2()">
+    <div>
+      <input type=button class="btn btn-outline-info" value="Reset" onclick="buttom3()">
+    </div>
+  </div>
+  <div class="content-section">
+    <h1>Weapon Banner</h1>
+    <button class="btn btn-outline-info">+10</button>
+    <button class="btn btn-outline-info">+5</button>
+    <button class="btn btn-outline-info">+1</button>
+    <div>
+      <button class="btn btn-outline-info">Reset</button>
+    </div>
+  </div>
+  <div class="content-section">
+    <h1>Standard Banner</h1>
+    <button class="btn btn-outline-info">+10</button>
+    <button class="btn btn-outline-info">+5</button>
+    <button class="btn btn-outline-info">+1</button>
+    <div>
+      <button class="btn btn-outline-info">Reset</button>
+    </div>
+  </div>
 {% endblock content %}
