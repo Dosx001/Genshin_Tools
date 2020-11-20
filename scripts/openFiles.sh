@@ -1,10 +1,10 @@
 #!/bin/bash
 if [ $# == 0 ]
 then
-    vim -p website/views.py pity_counter/views.py Genshin_Tools/settings.py \
-        "+vs website/urls.py | tabn" \
-        "+vs pity_counter/urls.py | tabn" \
-        "+tabmove 0"
+    vim -p website/urls.py pity_counter/urls.py Genshin_Tools/urls.py \
+        "+vs website/views.py | tabn" \
+        "+vs pity_counter/views.py | tabn" \
+        "+vs Genshin_Tools/settings.py | tabmove 0"
 elif [ $1 == 'h' ]
 then
     vim -p website/templates/website/base.html \
