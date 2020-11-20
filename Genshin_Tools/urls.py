@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users import views as users_views
+from pity_counter import views as pity_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
-    path('pity_counter', include('pity_counter.urls')),
+    path('', include('users.urls')),
+    path('', include('pity_counter.urls')),
 ]

@@ -27,6 +27,15 @@
               <a class="nav-item nav-link" href="#">Random Event</a>
             </div>
             <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="">New Post</a>
+                <a class="nav-item nav-link" href="">Profile</a>
+                <a class="nav-item nav-link" href="">Logout</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+              {% endif %}
           </div>
         </div>
       </nav>
