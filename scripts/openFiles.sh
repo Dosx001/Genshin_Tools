@@ -10,5 +10,9 @@ elif [ $1 == 'h' ]
 then
     vim -p website/templates/website/base.html \
         website/templates/website/home.html \
+        website/templates/website/post_detail.html \
+        website/templates/website/post_form.html \
+        website/templates/website/user_posts.html \
+        website/templates/website/post_confirm_delete.html \
         pity_counter/templates/pity_counter/pity_counter.html
 fi
