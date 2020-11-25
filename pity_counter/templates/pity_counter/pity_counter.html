@@ -1,33 +1,29 @@
 {% extends "website/base.html" %}
+{% load static %}
 {% block content %}
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
   <div class="content-section">
     <h1>Character Banner</h1>
-    <form name="count">
-      <input type="text" value=0 name="display">
-      <div>
-        <input type="button" class="btn btn-outline-info" value="+10" onclick="eval(count.display.value+=10)">
-        <button class="btn btn-outline-info">+5</button>
-        <button class="btn btn-outline-info">+1</button>
-      </div>
-    </form>
     <div>
-      <output type=text value=0 id="value"></output>
+      <text>Total Rolls: </text>
+      <text value={{ profile.character }} id="value">{{ profile.character }}</text>
     </div>
     <script type="text/javascript">
-      var x=0
+      var char={{ profile.character }}
       var element = document.getElementById("value");
 
       function buttom1() {
-        element.innerHTML = ++x;
+        element.innerHTML = ++char;
       }
       function buttom2() {
-        element.innerHTML = x += 10;
+        element.innerHTML = char += 10;
       }
       function buttom3() {
-        element.innerHTML = x = 0;
+        element.innerHTML = char = 0;
       }
     </script>
-    <input type=button class="btn btn-outline-info" value="+1" onclick="buttom1()">
+    <button type=button class="btn btn-outline-info" onclick="buttom1()">+1</button>
+    <script src="{% static 'pity_counter/main.js' %}"></script>
     <input type=button class="btn btn-outline-info" value="+10" onclick="buttom2()">
     <div>
       <input type=button class="btn btn-outline-info" value="Reset" onclick="buttom3()">
@@ -35,8 +31,11 @@
   </div>
   <div class="content-section">
     <h1>Weapon Banner</h1>
+    <div>
+      <text>Total Rolls: </text>
+      <text value={{ profile.weapon }} id="value">{{ profile.weapon }}</text>
+    </div>
     <button class="btn btn-outline-info">+10</button>
-    <button class="btn btn-outline-info">+5</button>
     <button class="btn btn-outline-info">+1</button>
     <div>
       <button class="btn btn-outline-info">Reset</button>
@@ -44,8 +43,11 @@
   </div>
   <div class="content-section">
     <h1>Standard Banner</h1>
+    <div>
+      <text>Total Rolls: </text>
+      <text value={{ profile.standard }} id="value">{{ profile.standard }}</text>
+    </div>
     <button class="btn btn-outline-info">+10</button>
-    <button class="btn btn-outline-info">+5</button>
     <button class="btn btn-outline-info">+1</button>
     <div>
       <button class="btn btn-outline-info">Reset</button>
