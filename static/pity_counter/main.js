@@ -30,14 +30,3 @@ $(document).ready(function(){
     });
   });
 });
-
-var element = document.getElementById("vaule")
-function buttom1(char) {
-  element.innerHTML = ++char;
-}
-function buttom2(char) {
-  element.innerHTML = char += 10;
-}
-function buttom3(char) {
-  element.innerHTML = char = 0;
-}
