@@ -1,7 +1,41 @@
 {% extends "website/base.html" %}
 {% load static %}
 {% block content %}
-  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="{% static 'pity_counter/main.js' %}"</script>
+  <script>
+  $(document).ready(function(){
+    $(document).on('submit', '#update-form', function(){
+      var data = $(this).serialize();
+      $.ajax({
+        type : 'POST',
+        url  : '',
+        data : data,
+        success :  function(data){
+          $(".display").html(data);
+        }
+      });
+      return false;
+    });
+  $(document).on('click', '#update-btn', function(){
+      var data = $("input[name='filenum']").val(); //Handle how you want
+      $.ajax({
+        type : 'POST',
+        url  : '',
+        data : data,
+        success :  function(data){
+          $(".display").html(data);
+        }
+      });
+    });
+  });
+  </script>
+  <div class='form'>
+    <form id='start' method='post'>
+      {% csrf_token %}
+      <p><input type='submit' value='Submit'></p>
+    </form>
+  </div>
   <div class="content-section">
     <h1>Character Banner</h1>
     <div>
@@ -23,7 +57,6 @@
       }
     </script>
     <button type=button class="btn btn-outline-info" onclick="buttom1()">+1</button>
-    <script src="{% static 'pity_counter/main.js' %}"></script>
     <input type=button class="btn btn-outline-info" value="+10" onclick="buttom2()">
     <div>
       <input type=button class="btn btn-outline-info" value="Reset" onclick="buttom3()">
