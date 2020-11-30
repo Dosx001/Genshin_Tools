@@ -1,7 +1,8 @@
 $(document).ready(function() {
+    var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
+
     $('#createButton').click(function() {
         var serializedData = $('#createTaskForm').serialize();
-        console.log(serializedData)
 
         $.ajax({
             url: $('createTaskForm').data('url'),
@@ -18,5 +19,22 @@ $(document).ready(function() {
             }
         })
         $('#createTaskForm')[0].reset();
+    });
+
+    $('#task_list').on('click', '.card', function() {
+        var dataId = $(this).data('id');
+        $.ajax({
+            url: dataId + '/completed/',
+            data: {
+                csrfmiddlewaretoken: csrfToken,
+                id : dataId
+            },
+            type: 'post',
+            success: function() {
+                var cardItem = $('#taskCard[date-id="' + dataId + '"]');
+                cardItem.css('text-decoration', 'line-through').hide().slideDown();
+                $('#task_list').append(cardItem);
+            }
+        })
     });
 });

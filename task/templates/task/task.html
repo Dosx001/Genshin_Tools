@@ -17,7 +17,8 @@
   </div>
   <div class='col-5 mt-5' id='task_list'>
     {% for task in tasks %}
-      <div class='card mb-1' id='taskCard' data-id='{{ task.id }}'>
+    <div class='card mb-1' id='taskCard' data-id='{{ task.id }}'
+      style='{% if task.completed  %} text-decoration: line-through {% endif %}'>
         <div class='card-body'>
           {{ task.title }}
           <button type='button' class='close float-right'>
