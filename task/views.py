@@ -10,17 +10,17 @@ from .forms import TaskForm
 class TaskView(View):
     def get(self, request):
         form = TaskForm()
-        events = Task.objects.all()
+        tasks = Task.objects.all()
         context = {
             'form': form,
-            'events': events,
+            'tasks': tasks,
         }
         return render(request, 'task/task.html', context)
 
     def post(self, request):
         form = TaskForm(request.POST)
         if form.is_valid():
-            new_event = form.save()
-            return JsonResponse({'event':model_to_dict(new_event)}, status=200)
+            new_task = form.save()
+            return JsonResponse({'task':model_to_dict(new_task)}, status=200)
         else:
             return redirect('task')

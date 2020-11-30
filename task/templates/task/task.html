@@ -16,10 +16,10 @@
     </form>
   </div>
   <div class='col-5 mt-5' id='task_list'>
-    {% for event in events %}
-      <div class='card mb-1' id='taskCard'>
+    {% for task in tasks %}
+      <div class='card mb-1' id='taskCard' data-id='{{ task.id }}'>
         <div class='card-body'>
-          {{ event.title }}
+          {{ task.title }}
           <button type='button' class='close float-right'>
             <span aria-hidden='true'>&times;</span>
           </button>
