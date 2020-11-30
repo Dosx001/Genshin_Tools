@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
     'pity_counter.apps.PityCounterConfig',
     'users.apps.UsersConfig',
+    'task.apps.TaskConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -23,6 +23,8 @@ urlpatterns = [
     path('', include('website.urls')),
     path('', include('users.urls')),
     path('', include('pity_counter.urls')),
+    #path('', include('random_event.urls')),
+    path('', include('task.urls')),
 ]
 
 if settings.DEBUG:

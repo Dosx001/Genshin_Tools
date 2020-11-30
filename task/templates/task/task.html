@@ -1,0 +1,31 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block content %}
+  <script src="{% static 'task/main.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'task/styles.css' %}">
+  <div class='col-8 mt-5'>
+    <form class='form-inline justify-content-center'
+      data-url="{% url 'task' %}" id='createTaskForm' method='post'>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class='mx-3'>
+          {{ field }}
+        </div>
+      {% endfor %}
+      <button type='button' class='btn btn-outline-success' id='createButton'>Create</button>
+    </form>
+  </div>
+  <div class='col-5 mt-5' id='task_list'>
+    {% for event in events %}
+      <div class='card mb-1' id='taskCard'>
+        <div class='card-body'>
+          {{ event.title }}
+          <button type='button' class='close float-right'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
+
