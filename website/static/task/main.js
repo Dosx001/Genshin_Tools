@@ -14,7 +14,9 @@ $(document).ready(function() {
                     + response.task.id +
                     '"><div class="card-body">'
                     + response.task.title +
-                    '<button type="button" class="close float-right"><span aria-hidden="true">&times;</span></button></div></div>'
+                    '<button type="button" class="close float-right" data-id="'
+                    + response.task.id +
+                    '"><span aria-hidden="true">&times;</span></button></div></div>'
                     )
             }
         })
@@ -35,6 +37,21 @@ $(document).ready(function() {
                 cardItem.css('text-decoration', 'line-through').hide().slideDown();
                 $('#task_list').append(cardItem);
             }
-        })
+        });
+    }).on('click', 'button.close', function(event) {
+        event.stopPropagation();
+        var dataId = $(this).data('id');
+        $.ajax({
+            url: dataId + '/delete/',
+            data: {
+                csrfmiddlewaretoken: csrfToken,
+                id : dataId
+            },
+            type: 'post',
+            dataType: 'json',
+            success: function() {
+                $('#taskCard[data-id="' + dataId + '"]').remove();
+            }
+        });
     });
 });
