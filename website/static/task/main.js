@@ -10,7 +10,7 @@ $(document).ready(function() {
             type: 'post',
             success: function(response) {
                 $('#task_list').append(
-                    '<div class="card mb-1 id="taskCard" date-id="'
+                    '<div class="card mb-1 id="taskCard" data-id="'
                     + response.task.id +
                     '"><div class="card-body">'
                     + response.task.title +
@@ -31,7 +31,7 @@ $(document).ready(function() {
             },
             type: 'post',
             success: function() {
-                var cardItem = $('#taskCard[date-id="' + dataId + '"]');
+                var cardItem = $('#taskCard[data-id="' + dataId + '"]');
                 cardItem.css('text-decoration', 'line-through').hide().slideDown();
                 $('#task_list').append(cardItem);
             }
