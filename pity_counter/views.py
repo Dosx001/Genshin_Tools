@@ -3,10 +3,12 @@ from django.contrib.auth.models import User
 from django.views.generic import View
 from django.http import JsonResponse
 
+from users.models import Profile
+
 class PityCounterView(View):
     def get(self, request):
         context = {
-            'profile': request.user.profile,
+            'profile': Profile() if request.user.is_anonymous else request.user.profile
         }
         return render(request, 'pity_counter/pity_counter.html', context)
 
@@ -28,13 +30,3 @@ class PityCounterView(View):
         }
         return render(request, 'pity_counter/pity_counter.html', context)
         return JsonResponse({'seconds': 123})
-
-def Weapon10(request):
-    char = request.GET.get('buttum_num', None)
-    print(char)
-    if char <= 80:
-        request.user.profile.character = 0
-    else:
-        request.user.profile.character += 10
-    print(request.user.profile.character)
-#    return home(request)
