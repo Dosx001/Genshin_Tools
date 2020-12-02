@@ -1,5 +1,16 @@
 {% extends "website/base.html" %}
 {% load static %}
 {% block content %}
-  <h1>Random Event</h1>
+  <link rel="stylesheet" href="{% static 'random_event/styles.css' %}">
+  <div class='content-section text-center'>
+    <h1 id='event'>Remaining Events: {{ profile.event }}</h1>
+    <div>
+      <button type="button" class="btn btn-info btn-lg">-1</button>
+    </div>
+    <div>
+      <text>*Plase note counter refreshes daily</text>
+    </div>
+  </div>
+  <h2 class='text-center'>Quick Video Guide for Random Events<h2>
+  <iframe width="720" height="480" src="https://www.youtube.com/embed/bpteD4cugIg?"></iframe>
 {% endblock content %}
