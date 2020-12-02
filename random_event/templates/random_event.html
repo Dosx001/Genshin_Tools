@@ -1,12 +1,17 @@
 {% extends "website/base.html" %}
 {% load static %}
 {% block content %}
+  <script src="{% static 'random_event/main.js' %}"></script>
   <link rel="stylesheet" href="{% static 'random_event/styles.css' %}">
   <div class='content-section text-center'>
-    <h1 id='event'>Remaining Events: {{ profile.event }}</h1>
-    <div>
-      <button type="button" class="btn btn-info btn-lg">-1</button>
-    </div>
+    <form id='EventForm' method='post'>
+      {% csrf_token %}
+      <h1>Remaining Events: </h1>
+      <h1 id='num'>{{ profile.event }}</h1>
+      <div>
+        <button type="button" class="btn btn-info btn-lg">-1</button>
+      </div>
+    </form>
     <div>
       <text>*Plase note counter refreshes daily</text>
     </div>
