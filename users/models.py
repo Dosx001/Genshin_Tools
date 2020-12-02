@@ -8,6 +8,7 @@ class Profile(models.Model):
     character = models.IntegerField(default=0)
     weapon = models.IntegerField(default=0)
     standard = models.IntegerField(default=0)
+    event = models.IntegerField(default=10)
 
     def __str__(self):
         return f'{self.user.username} Profile'
