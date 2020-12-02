@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'pity_counter.apps.PityCounterConfig',
     'users.apps.UsersConfig',
     'task.apps.TaskConfig',
+    'random_event.apps.RandomEventConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

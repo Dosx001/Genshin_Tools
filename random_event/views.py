@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.views.generic import View
 
-# Create your views here.
+class RandomEventView(View):
+    def get(self, request):
+        context = {
+        }
+        return render(request, 'random_event.html', context)
