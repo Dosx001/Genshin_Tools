@@ -29,7 +29,7 @@ $(document).ready(function() {
             url: dataId + '/completed/',
             data: {
                 csrfmiddlewaretoken: csrfToken,
-                id : dataId
+                id : dataId,
             },
             type: 'post',
             success: function() {

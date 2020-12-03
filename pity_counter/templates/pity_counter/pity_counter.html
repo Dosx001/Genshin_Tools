@@ -1,89 +1,53 @@
 {% extends "website/base.html" %}
 {% load static %}
 {% block content %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="{% static 'pity_counter/main.js' %}"</script>
-  <script>
-  $(document).ready(function(){
-    $(document).on('submit', '#update-form', function(){
-      var data = $(this).serialize();
-      $.ajax({
-        type : 'POST',
-        url  : '',
-        data : data,
-        success :  function(data){
-          $(".display").html(data);
-        }
-      });
-      return false;
-    });
-  $(document).on('click', '#update-btn', function(){
-      var data = $("input[name='filenum']").val(); //Handle how you want
-      $.ajax({
-        type : 'POST',
-        url  : '',
-        data : data,
-        success :  function(data){
-          $(".display").html(data);
-        }
-      });
-    });
-  });
-  </script>
-  <div class='form'>
-    <form id='start' method='post'>
+  <script src="{% static 'pity_counter/main.js' %}"></script>
+  <div class="content-section">
+    <form method='post'>
       {% csrf_token %}
-      <p><input type='submit' value='Submit'></p>
+      <h1>Character Banner</h1>
+      <div>
+        <h5>Total Rolls: </h5>
+        <h2 id='char'>{{ profile.character }}</h2>
+      </div>
+      <button type=button value='1' id='Char' class="btn btn-outline-info">+1</button>
+      <button type=button value='10' id='Char' class="btn btn-outline-info">+10</button>
+      <div>
+        <button type=button value='reset' id='Char' class="btn btn-outline-info">Reset</button>
+      </div>
     </form>
+    <small>*Pity reset at 90</small>
   </div>
   <div class="content-section">
-    <h1>Character Banner</h1>
-    <div>
-      <text>Total Rolls: </text>
-      <text value={{ profile.character }} id="value">{{ profile.character }}</text>
-    </div>
-    <script type="text/javascript">
-      var char={{ profile.character }}
-      var element = document.getElementById("value");
-
-      function buttom1() {
-        element.innerHTML = ++char;
-      }
-      function buttom2() {
-        element.innerHTML = char += 10;
-      }
-      function buttom3() {
-        element.innerHTML = char = 0;
-      }
-    </script>
-    <button type=button class="btn btn-outline-info" onclick="buttom1()">+1</button>
-    <input type=button class="btn btn-outline-info" value="+10" onclick="buttom2()">
-    <div>
-      <input type=button class="btn btn-outline-info" value="Reset" onclick="buttom3()">
-    </div>
+    <form method='post'>
+      {% csrf_token %}
+      <h1>Weapon Banner</h1>
+      <div>
+        <h5>Total Rolls: </h5>
+        <h2 id="weap">{{ profile.weapon }}</h2>
+      </div>
+      <button type=button value='1' id='Weap' class="btn btn-outline-info">+1</button>
+      <button type=button value='10' id='Weap' class="btn btn-outline-info">+10</button>
+      <div>
+        <button type=button value='reset' id='Weap' class="btn btn-outline-info">Reset</button>
+      </div>
+    </form>
+    <small>*Pity reset at 90</small>
   </div>
   <div class="content-section">
-    <h1>Weapon Banner</h1>
-    <div>
-      <text>Total Rolls: </text>
-      <text value={{ profile.weapon }} id="value">{{ profile.weapon }}</text>
-    </div>
-    <button class="btn btn-outline-info">+10</button>
-    <button class="btn btn-outline-info">+1</button>
-    <div>
-      <button class="btn btn-outline-info">Reset</button>
-    </div>
-  </div>
-  <div class="content-section">
-    <h1>Standard Banner</h1>
-    <div>
-      <text>Total Rolls: </text>
-      <text value={{ profile.standard }} id="value">{{ profile.standard }}</text>
-    </div>
-    <button class="btn btn-outline-info">+10</button>
-    <button class="btn btn-outline-info">+1</button>
-    <div>
-      <button class="btn btn-outline-info">Reset</button>
-    </div>
+    <form method='post'>
+      {% csrf_token %}
+      <h1>Standard Banner</h1>
+      <div>
+        <h5>Total Rolls: </h5>
+        <h2 id="stan">{{ profile.standard }}</h2>
+      </div>
+      <button type=button value='1' id='Stan' class="btn btn-outline-info">+1</button>
+      <button type=button value='10' id='Stan' class="btn btn-outline-info">+10</button>
+      <div>
+        <button type=button value='reset' id='Stan' class="btn btn-outline-info">Reset</button>
+      </div>
+    </form>
+    <small>*Pity reset at 80</small>
   </div>
 {% endblock content %}

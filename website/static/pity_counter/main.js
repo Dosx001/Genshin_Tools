@@ -1,32 +1,39 @@
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-
 $(document).ready(function(){
-  $('.btn').click(function(){
-    let btn = $(this);
-    $.ajax({
-      url: '',
-      type: 'post',
-      data: {
-        buttum_text: btn.text(),
-        csrfmiddlewaretoken: getCookie('csrftoken');
-      }
-      success: function(response) {
-        btn.text(response.seconds)
-      }
+    $('.btn').click(function(){
+        var but = $(this)[0];
+        var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
+
+        $.ajax({
+            url: '',
+            data: {
+                csrfmiddlewaretoken: csrfToken,
+                id: but.id,
+                value: but.value
+            },
+            type: 'post',
+            success: function(response) {
+                if (but.id == 'Char') {
+                    var element = document.getElementById('char');
+                } else if (but.id == 'Weap') {
+                    var element = document.getElementById('weap');
+                } else {
+                    var element = document.getElementById('stan');
+                }
+                if (but.value == 'reset') {
+                    element.innerHTML = 0;
+                } else {
+                    element.innerHTML = parseInt(element.innerHTML) + parseInt(but.value);
+                }
+                if (but.id == 'Stan'){
+                    if (element.innerHTML >= 80){
+                        element.innerHTML = 0
+                    }
+                } else {
+                    if (element.innerHTML >= 90) {
+                        element.innerHTML = 0;
+                    }
+                }
+            }
+        })
     });
-  });
 });
