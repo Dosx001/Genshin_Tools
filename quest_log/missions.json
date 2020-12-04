@@ -1,0 +1,127 @@
+{
+    "Archon": {
+        "Prologue": {
+            "The Outlander Who Caught the Wind": {
+                "Adventure Rank": null
+            },
+            "For a Tomorrow Without Tears": {
+                "Adventure Rank": 10
+            },
+            "Song of the Dragon and Freedom": {
+                "Adventure Rank": 18
+
+            }
+        },
+        "Chapter 1": {
+            "Of the Land Amidst Monoliths": {
+                "Adventure Rank": 23
+            },
+            "Farewell, Archaic Lord": {
+                "Adventure Rank": 29
+            },
+            "A New Star Approaches": {
+                "Adventure Rank": 35
+            }
+        }
+    },
+    "World": {
+        "Mondstadt": {
+            "A Fine Opportunity?": {
+                "Location": "Mondstadt",
+                "Adventure Rank": null,
+                "Archon": "Dragon Storm",
+                "World": null,
+                "Commission": null,
+                "NPC": "Dr. Livingstone"
+            },
+            "After the Storm": {
+                "Location": "Mondstadt",
+                "Adventure Rank": null,
+                "Archon": "Song of the Dragon and Freedom",
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Break the Sword Cemetery Seal": {
+                "Location": "Dadaupa Gorge",
+                "Adventure Rank": null,
+                "Archon": "Song of the Dragon and Freedom",
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Busy Adventurers' Guild": {
+                "Location": "Mondstadt",
+                "Adventure Rank": 14,
+                "Archon": null,
+                "World": "Welcome to the Adventurers' Guild",
+                "Commission": null,
+                "NPC": null
+            },
+            "Cleanup At Dawn": {
+                "Location": "Dawn Winery",
+                "Adventure Rank": null,
+                "Archon": "Song of the Dragon and Freedom",
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Collector of Anemo Sigils": {
+                "Location": "Mondstadt",
+                "Adventure Rank": 9,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Equivalent Exchange": {
+                "Location": "Cathedral",
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission":  "Tales of Winter",
+                "NPC": null
+            }
+        },
+        "Liyue": {
+            "...What Do Adventurers Do Again?": {
+                "Location": "Liyue Harbor",
+                "Adventure Rank": null,
+                "Archon": "Farewell, Archaic Lord",
+                "Commission": null,
+                "NPC": null
+            },
+            "A Little Game": {
+                "Location": "Mt. Tiangheng",
+                "Adventure Rank": null,
+                "Archon": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "An Adeptal Summons": {
+                "Location": "Mt. Aozang",
+                "Adventure Rank": null,
+                "Archon": null,
+                "Commission": null,
+                "NPC": null
+            }
+        }
+    },
+    "Commission": {
+        "A Bottomless Appetite": {
+            "World": null
+            },
+        "A Little Booze Doesn't Hurt...": {
+            "World": null
+            },
+        "A New Storm is Brewing": {
+            "World": null
+            },
+        "A Surprise Gift": {
+            "World": null
+            },
+        "Adventure Takes Courage!": {
+            "World": null
+        }
+    }
+}
