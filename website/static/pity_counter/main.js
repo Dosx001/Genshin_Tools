@@ -24,7 +24,7 @@ $(document).ready(function(){
                 } else {
                     element.innerHTML = parseInt(element.innerHTML) + parseInt(but.value);
                 }
-                if (but.id == 'Stan'){
+                if (but.id == 'Weap'){
                     if (element.innerHTML >= 80){
                         element.innerHTML = 0
                     }
