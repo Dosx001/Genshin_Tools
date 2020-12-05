@@ -1,12 +1,22 @@
-.sidebar{
-    display: grid;
+.sidebar {
     background: #ffffff;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border: 1px solid #dddddd;
     border-radius: 3px;
     position: fixed;
-    left: 50px;
-    font-size: 2rem;
+    left: 0;
+    font-size: 1.45rem;
+    height: 100vh;
+    margin-top: -2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.toclevel-2 {
+    padding-left: 30px;
 }
 
 a{
@@ -15,4 +25,12 @@ a{
 
 a:hover{
     text-decoration: None;
+}
+
+#contents {
+    font-size: 2.5rem;
+}
+
+span {
+    padding-left: 40px;
 }

@@ -2,16 +2,28 @@
 {% load static %}
 {% block content %}
   <link rel="stylesheet" href="{% static 'quest_log/styles.css' %}">
-  <aside class='sidebar'>
-    <a href='#Archon'>Archon Quests</a>
-    <a href='#World'>World Quests</a>
-    <a href='#Commissions'>Commissions</a>
-  </aside>
+    <aside id="toc" class="sidebar" role="navigation">
+      <ul>
+        <text id='contents'>Contents</text>
+        <li class="toclevel-1 tocsection-1"><a href="#Archon">Archon Quests</a></li>
+          <ul>
+            <li class="toclevel-2 tocsection-2"><a href='#Prologue'>Prologue</a></li>
+            <li class="toclevel-2 tocsection-2"><a href='#Chapter 1'>Chapter 1</a></li>
+          </ul>
+        </li>
+        <li class="toclevel-1 tocsection-4"><a href="#World">World Quests</a></li>
+          <ul>
+            <li class="toclevel-2 tocsection-2"><a href='#Mondstadt'>Mondstadt</a></li>
+            <li class="toclevel-2 tocsection-2"><a href='#Liyue'>Liyue</a></li>
+          </ul>
+        <li class="toclevel-1 tocsection-4"><a href="#Commissions">Commissions</a></li>
+      </ul>
+    </aside>
   <div class='content-section'>
     <h1 id='Archon'>Archon Quests</h1>
     {% for chapter, missions in Archon.items %}
       <div class='content-section'>
-        <h3>{{ chapter }}</h3>
+        <h3 id='{{ chapter }}'>{{ chapter }}</h3>
         {% for mission, reqs in missions.items %}
           <ul class="list-group">
             <li class="list-group-item">
@@ -22,7 +34,7 @@
               {% for req, other in reqs.items %}
                 {% if other != None %}
                   <div>
-                    <span style="padding-left:40px;"><b>{{ req }}</b>: {{ other }}</span>
+                    <span><b>{{ req }}</b>: {{ other }}</span>
                   </div>
                 {% endif %}
               {% endfor %}
@@ -36,7 +48,7 @@
     <h1 id='World'>World Quests</h1>
     {% for region, missions in World.items %}
       <div class='content-section'>
-        <h3>{{ region }}</h3>
+        <h3 id='{{ region }}'>{{ region }}</h3>
         {% for mission, reqs in missions.items %}
           <ul class="list-group">
             <li class="list-group-item">
@@ -47,7 +59,7 @@
               {% for req, other in reqs.items %}
                 {% if other != None %}
                   <div>
-                    <span style="padding-left:40px;"><b>{{ req }}</b>: {{ other }}</span>
+                    <span><b>{{ req }}</b>: {{ other }}</span>
                   </div>
                 {% endif %}
               {% endfor %}
@@ -69,7 +81,7 @@
           {% for req, other in reqs.items %}
             {% if other != None %}
               <div>
-                <span style="padding-left:40px;"><b>{{ req }}</b>: {{ other }}</span>
+                <span><b>{{ req }}</b>: {{ other }}</span>
               </div>
             {% endif %}
           {% endfor %}
