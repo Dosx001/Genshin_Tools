@@ -1,8 +1,14 @@
 {% extends "website/base.html" %}
 {% load static %}
 {% block content %}
+  <link rel="stylesheet" href="{% static 'quest_log/styles.css' %}">
+  <aside class='sidebar'>
+    <a href='#Archon'>Archon Quests</a>
+    <a href='#World'>World Quests</a>
+    <a href='#Commissions'>Commissions</a>
+  </aside>
   <div class='content-section'>
-    <h1>Archon Quests</h1>
+    <h1 id='Archon'>Archon Quests</h1>
     {% for chapter, missions in Archon.items %}
       <div class='content-section'>
         <h3>{{ chapter }}</h3>
@@ -27,7 +33,7 @@
     {% endfor %}
   </div>
   <div class='content-section'>
-    <h1>World Quests</h1>
+    <h1 id='World'>World Quests</h1>
     {% for region, missions in World.items %}
       <div class='content-section'>
         <h3>{{ region }}</h3>
@@ -52,7 +58,7 @@
     {% endfor %}
   </div>
   <div class='content-section'>
-    <h1>Commissions</h1>
+    <h1 id='Commissions'>Commissions</h1>
     {% for mission, reqs in Commission.items %}
       <ul class="list-group">
         <li class="list-group-item">
