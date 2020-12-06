@@ -2,23 +2,27 @@
 {% load static %}
 {% block content %}
   <link rel="stylesheet" href="{% static 'quest_log/styles.css' %}">
-    <aside id="toc" class="sidebar" role="navigation">
-      <ul>
-        <text id='contents'>Contents</text>
-        <li class="toclevel-1 tocsection-1"><a href="#Archon">Archon Quests</a></li>
-          <ul>
-            <li class="toclevel-2 tocsection-2"><a href='#Prologue'>Prologue</a></li>
-            <li class="toclevel-2 tocsection-2"><a href='#Chapter 1'>Chapter 1</a></li>
-          </ul>
-        </li>
-        <li class="toclevel-1 tocsection-4"><a href="#World">World Quests</a></li>
-          <ul>
-            <li class="toclevel-2 tocsection-2"><a href='#Mondstadt'>Mondstadt</a></li>
-            <li class="toclevel-2 tocsection-2"><a href='#Liyue'>Liyue</a></li>
-          </ul>
-        <li class="toclevel-1 tocsection-4"><a href="#Commissions">Commissions</a></li>
-      </ul>
-    </aside>
+
+  <!-- Sidebar -->
+  <aside id="toc" class="sidebar" role="navigation">
+    <ul>
+      <text id='contents'>Contents</text>
+      <li class="toclevel-1 tocsection-1"><a href="#Archon">Archon Quests</a></li>
+        <ul>
+          <li class="toclevel-2 tocsection-2"><a href='#Prologue'>Prologue</a></li>
+          <li class="toclevel-2 tocsection-2"><a href='#Chapter 1'>Chapter 1</a></li>
+        </ul>
+      </li>
+      <li class="toclevel-1 tocsection-4"><a href="#World">World Quests</a></li>
+        <ul>
+          <li class="toclevel-2 tocsection-2"><a href='#Mondstadt'>Mondstadt</a></li>
+          <li class="toclevel-2 tocsection-2"><a href='#Liyue'>Liyue</a></li>
+        </ul>
+      <li class="toclevel-1 tocsection-4"><a href="#Commissions">Commissions</a></li>
+    </ul>
+  </aside>
+
+  <!-- Archon -->
   <div class='content-section'>
     <h1 id='Archon'>Archon Quests</h1>
     {% for chapter, missions in Archon.items %}
@@ -34,7 +38,7 @@
               {% for req, other in reqs.items %}
                 {% if other != None %}
                   <div>
-                    <span><b>{{ req }}</b>: {{ other }}</span>
+                    <span><img src="/media/Quest_Log/Adventure_Rank.jpg">: {{ other }}</span>
                   </div>
                 {% endif %}
               {% endfor %}
@@ -44,6 +48,8 @@
       </div>
     {% endfor %}
   </div>
+
+  <!-- World -->
   <div class='content-section'>
     <h1 id='World'>World Quests</h1>
     {% for region, missions in World.items %}
@@ -59,7 +65,17 @@
               {% for req, other in reqs.items %}
                 {% if other != None %}
                   <div>
-                    <span><b>{{ req }}</b>: {{ other }}</span>
+                    {% if req == 'Adventure Rank' %}
+                      <span><img src="/media/Quest_Log/Adventure_Rank.jpg">: {{ other }}</span>
+                    {% elif req == 'Commission' %}
+                      <span><img src="/media/Quest_Log/Commissions.jpg">: {{ other }}</span>
+                    {% elif req == 'World' %}
+                      <span><img src="/media/Quest_Log/World_Quest.jpg">: {{ other }}</span>
+                    {% elif req == 'Archon' %}
+                      <span><img src="/media/Quest_Log/Archon.jpg">: {{ other }}</span>
+                    {% else %}
+                      <span><b>{{ req }}</b>: {{ other }}</span>
+                    {% endif %}
                   </div>
                 {% endif %}
               {% endfor %}
@@ -69,6 +85,8 @@
       </div>
     {% endfor %}
   </div>
+
+  <!-- Commissions -->
   <div class='content-section'>
     <h1 id='Commissions'>Commissions</h1>
     {% for mission, reqs in Commission.items %}

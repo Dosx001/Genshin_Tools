@@ -34,3 +34,8 @@ a:hover{
 span {
     padding-left: 40px;
 }
+
+img {
+    width: 20px;
+    height: 20px;
+}

@@ -37,9 +37,9 @@ class PityCounterView(View):
             check = request.user.profile.standard
         if pity == 'Char' and check >= 90:
             request.user.profile.character = 0
-        elif pity == 'Weap' and check >= 90:
+        elif pity == 'Weap' and check >= 80:
             request.user.profile.weapon = 0
-        elif pity == 'Stan' and check >= 80:
+        elif pity == 'Stan' and check >= 90:
             request.user.profile.standard = 0
         request.user.profile.save()
         return redirect('pity_counter')
