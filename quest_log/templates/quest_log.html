@@ -1,5 +1,6 @@
 {% extends "website/base.html" %}
 {% load static %}
+{% load filter %}
 {% block content %}
   <link rel="stylesheet" href="{% static 'quest_log/styles.css' %}">
 
@@ -30,6 +31,7 @@
       <li><img src="/media/Quest_Log/Commissions.png"> Commission</li>
       <li><img src="/media/Quest_Log/NPC.png"> NPC</li>
       <li><img src="/media/Quest_Log/Adventure_Rank.png"> Adventure Rank</li>
+      <li><img src="/media/Quest_Log/Check.png"> Cleared</li>
     </ul>
   </aside>
 
@@ -43,8 +45,12 @@
           <ul class="list-group">
             <li class="list-group-item">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultUnchecked-{{mission}}">
-                  <label class="custom-control-label" for="defaultUnchecked-{{mission}}">{{ mission }}</label>
+                <input type="checkbox" class="custom-control-input"
+                  id="defaultUnchecked-{{mission}}"
+                  {% if Check|Dict_finder:mission %} checked {% endif %}>
+                <label class="custom-control-label" for="defaultUnchecked-{{mission}}">
+                  {{ mission }}
+                </label>
               </div>
               {% for req, other in reqs.items %}
                 {% if other != None %}
@@ -70,13 +76,19 @@
           <ul class="list-group">
             <li class="list-group-item">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultUnchecked-{{mission}}">
-                  <label class="custom-control-label" for="defaultUnchecked-{{mission}}">{{ mission }}</label>
+                <input type="checkbox" class="custom-control-input"
+                  id="defaultUnchecked-{{mission}}"
+                  {% if Check|Dict_finder:mission %} checked {% endif %}>
+                <label class="custom-control-label" for="defaultUnchecked-{{mission}}">
+                  {{ mission }}
+                </label>
               </div>
               {% for req, other in reqs.items %}
                 {% if other != None %}
                   <div>
-                    {% if req == 'Adventure Rank' %}
+                    {% if Check|Dict_finder:other %}
+                      <span><img src="/media/Quest_Log/Check.png">: {{ other }}</span>
+                    {% elif req == 'Adventure Rank' %}
                       <span><img src="/media/Quest_Log/Adventure_Rank.png">: {{ other }}</span>
                     {% elif req == 'Commission' %}
                       <span><img src="/media/Quest_Log/Commissions.png">: {{ other }}</span>
@@ -106,8 +118,12 @@
       <ul class="list-group">
         <li class="list-group-item">
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="defaultUnchecked-{{mission}}">
-              <label class="custom-control-label" for="defaultUnchecked-{{mission}}">{{ mission }}</label>
+            <input type="checkbox" class="custom-control-input"
+              id="defaultUnchecked-{{mission}}"
+              {% if Check|Dict_finder:mission %} checked {% endif %}>
+            <label class="custom-control-label" for="defaultUnchecked-{{mission}}">
+              {{ mission }}
+            </label>
           </div>
           {% for req, other in reqs.items %}
             {% if other != None %}
