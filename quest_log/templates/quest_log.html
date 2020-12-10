@@ -74,7 +74,7 @@
         <h3 id='{{ region }}'>{{ region }}</h3>
         {% for mission, reqs in missions.items %}
           <ul class="list-group">
-            <li class="list-group-item">
+            <li id='{{ missions }}' class="list-group-item">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input"
                   id="defaultUnchecked-{{mission}}"
@@ -88,19 +88,19 @@
                   <div>
                     <span>
                       {% if Check|Dict_finder:other %}
-                        <img src="/media/Quest_Log/Check.png">:
-                      {% elif req == 'Adventure Rank' %}
-                        <img src="/media/Quest_Log/Adventure_Rank.png">:
+                        <img src="/media/Quest_Log/Check.png">: <a href='#{{ other }}'>{{ other }}</a>
                       {% elif req == 'Commission' %}
-                        <img src="/media/Quest_Log/Commissions.png">:
+                        <img src="/media/Quest_Log/Commissions.png">: <a href='#{{ other }}'>{{ other }}</a>
                       {% elif req == 'World' %}
-                        <img src="/media/Quest_Log/World_Quest.png">:
+                        <img src="/media/Quest_Log/World_Quest.png">: <a href='#{{ other }}'>{{ other }}</a>
                       {% elif req == 'Archon' %}
-                        <img src="/media/Quest_Log/Archon.png">:
+                        <img src="/media/Quest_Log/Archon.png">: <a href='#{{ other }}'>{{ other }}</a>
                       {% elif req == 'NPC' %}
-                        <img src="/media/Quest_Log/NPC.png">:
+                        <img src="/media/Quest_Log/NPC.png">: {{ other }}
+                      {% elif req == 'Adventure Rank' %}
+                        <img src="/media/Quest_Log/Adventure_Rank.png">: {{ other }}
                       {% else %}
-                        <b>{{ req }}</b>:
+                        <b>{{ req }}</b>: {{ other }}
                       {% endif %}
                     </span>
                   </div>
@@ -118,7 +118,7 @@
     <h1 id='Commissions'>Commissions</h1>
     {% for mission, reqs in Commission.items %}
       <ul class="list-group">
-        <li class="list-group-item">
+        <li id='{{ mission }}' class="list-group-item">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input"
               id="defaultUnchecked-{{mission}}"
