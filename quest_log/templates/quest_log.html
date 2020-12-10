@@ -86,21 +86,23 @@
               {% for req, other in reqs.items %}
                 {% if other != None %}
                   <div>
-                    {% if Check|Dict_finder:other %}
-                      <span><img src="/media/Quest_Log/Check.png">: {{ other }}</span>
-                    {% elif req == 'Adventure Rank' %}
-                      <span><img src="/media/Quest_Log/Adventure_Rank.png">: {{ other }}</span>
-                    {% elif req == 'Commission' %}
-                      <span><img src="/media/Quest_Log/Commissions.png">: {{ other }}</span>
-                    {% elif req == 'World' %}
-                      <span><img src="/media/Quest_Log/World_Quest.png">: {{ other }}</span>
-                    {% elif req == 'Archon' %}
-                      <span><img src="/media/Quest_Log/Archon.png">: {{ other }}</span>
-                    {% elif req == 'NPC' %}
-                      <span><img src="/media/Quest_Log/NPC.png">: {{ other }}</span>
-                    {% else %}
-                      <span><b>{{ req }}</b>: {{ other }}</span>
-                    {% endif %}
+                    <span>
+                      {% if Check|Dict_finder:other %}
+                        <img src="/media/Quest_Log/Check.png">:
+                      {% elif req == 'Adventure Rank' %}
+                        <img src="/media/Quest_Log/Adventure_Rank.png">:
+                      {% elif req == 'Commission' %}
+                        <img src="/media/Quest_Log/Commissions.png">:
+                      {% elif req == 'World' %}
+                        <img src="/media/Quest_Log/World_Quest.png">:
+                      {% elif req == 'Archon' %}
+                        <img src="/media/Quest_Log/Archon.png">:
+                      {% elif req == 'NPC' %}
+                        <img src="/media/Quest_Log/NPC.png">:
+                      {% else %}
+                        <b>{{ req }}</b>:
+                      {% endif %}
+                    </span>
                   </div>
                 {% endif %}
               {% endfor %}
