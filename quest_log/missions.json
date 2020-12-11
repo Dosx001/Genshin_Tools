@@ -9,7 +9,6 @@
             },
             "Song of the Dragon and Freedom": {
                 "Adventure Rank": 18
-
             }
         },
         "Chapter 1": {
@@ -79,7 +78,151 @@
                 "Adventure Rank": null,
                 "Archon": null,
                 "World": null,
-                "Commission":  "Tales of Winter",
+                "Commission": "Tales of Winter",
+                "NPC": null
+            },
+            "Every Day a New Adventure": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Flighty Flora... and Flora": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "In the Aftermath": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Lingering Malady": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Mondstadt and its Archon": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "New Horizons of Adventure": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Not to be Missed": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Question and Answer": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Scent on the Wind": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Sharpening the Axe Won't Hinder the Work": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Solo Venture": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "The Art of Cooking": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "The Blessings of The Seven": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Thief-Catcher": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Time Waits For No Man": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Time and the Wind": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Welcome to the Adventurers' Guild": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Windrise, Windfal": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
                 "NPC": null
             }
         },
@@ -91,6 +234,14 @@
                 "Commission": null,
                 "NPC": null
             },
+            "..What Do Adventurers Do Again?": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
             "A Little Game": {
                 "Location": "Mt. Tiangheng",
                 "Adventure Rank": null,
@@ -98,22 +249,8 @@
                 "Commission": null,
                 "NPC": null
             },
-            "An Adeptal Summons": {
-                "Location": "Mt. Aozang",
-                "Adventure Rank": null,
-                "Archon": null,
-                "Commission": null,
-                "NPC": null
-            },
             "A Lone Ship In Guyun": {
                 "Location": "Guyun Stone Forest",
-                "Adventure Rank": null,
-                "Archon": null,
-                "Commission": null,
-                "NPC": null
-            },
-            "And This Treasure Goes to...": {
-                "Location": "Lingju Pass",
                 "Adventure Rank": null,
                 "Archon": null,
                 "Commission": null,
@@ -132,6 +269,212 @@
                 "Archon": "Farewell, Archaic Lord",
                 "Commission": null,
                 "NPC": null
+            },
+            "An Adeptal Summons": {
+                "Location": "Mt. Aozang",
+                "Adventure Rank": null,
+                "Archon": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "An Ode to Yonder City": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "And This Treasure Goes To...": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "And This Treasure Goes to...": {
+                "Location": "Lingju Pass",
+                "Adventure Rank": null,
+                "Archon": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Big Business": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Blackcliff Woes": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Book in the Woods": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Changchang's Little Friend": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Endless Research": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Luhua Landscape": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Necessary Procedures": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Nine Pillars of Peace": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Old Tastes Die Hard": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Overstretched": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Pressing Deadlines": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Share Not Your Treasures": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "The Adventurers' Guild's Affairs": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "The Chi of Guyun": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "The Ocean Pearl": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "The Secret of Nantianmen": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "The Tree who Stands Alone": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "The Yaksha's Wish": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Trails in Tianqiu": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Treasure Lost, Treasure Found": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Will of Stone": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
+            },
+            "Words Worth Their Weight in Mora": {
+                "Location": null,
+                "Adventure Rank": null,
+                "Archon": null,
+                "World": null,
+                "Commission": null,
+                "NPC": null
             }
         }
     },
@@ -142,7 +485,13 @@
         "A Little Booze Doesn't Hurt...": {
             "World": null
         },
+        "A Little Raid": {
+            "World": null
+        },
         "A New Storm is Brewing": {
+            "World": null
+        },
+        "A Returning Customer": {
             "World": null
         },
         "A Surprise Gift": {
@@ -160,6 +509,9 @@
         "Business in a Marsh": {
             "World": null
         },
+        "Cleanup At Dawn II": {
+            "World": null
+        },
         "Cliffhanger": {
             "World": null
         },
@@ -175,7 +527,127 @@
         "Food Delivery": {
             "World": null
         },
+        "For Old Time's Sake": {
+            "World": null
+        },
+        "Geo Travel Diary": {
+            "World": null
+        },
+        "Good Medicine Tastes Bitter": {
+            "World": null
+        },
+        "Good Sign": {
+            "World": null
+        },
+        "Grateful to the Gods": {
+            "World": null
+        },
+        "Growing Pains": {
+            "World": null
+        },
+        "Guest from Afar": {
+            "World": null
+        },
+        "Guy in the Background": {
+            "World": null
+        },
+        "Language Exchange": {
+            "World": null
+        },
+        "Leaves on the Wind": {
+            "World": null
+        },
+        "Long Distance Love": {
+            "World": null
+        },
+        "Lost Key": {
+            "World": null
+        },
+        "Michelle Never Stops!": {
+            "World": null
+        },
+        "Miracle Medicine": {
+            "World": null
+        },
+        "Nora, Run!": {
+            "World": null
+        },
+        "One Ship, Two Ships, Three Ships": {
+            "World": null
+        },
+        "Pigeon, Duck, and Child": {
+            "World": null
+        },
+        "Pigeons Go AWOL": {
+            "World": null
+        },
+        "Pirate Invasion, in Liyue Harbor!": {
+            "World": null
+        },
+        "Poetry Exchange": {
+            "World": null
+        },
+        "Presumption of Innocence": {
+            "World": null
+        },
+        "Question and Answer": {
+            "World": null
+        },
+        "Reliable Helper": {
+            "World": null
+        },
+        "Sorry, Linling!": {
+            "World": null
+        },
+        "Sorry, Timmie!": {
+            "World": null
+        },
+        "Stairway to Wangshu": {
+            "World": null
+        },
+        "Stop Albert, Stop!": {
+            "World": null
+        },
         "Tales of Winter": {
+            "World": null
+        },
+        "The Best Audience in All of Mondstadt": {
+            "World": null
+        },
+        "The Essence of Poetry": {
+            "World": null
+        },
+        "The Limitations of an Adventurer": {
+            "World": null
+        },
+        "The Lost Relic": {
+            "World": null
+        },
+        "The Sparrow Studies the Blade": {
+            "World": null
+        },
+        "Things a Father Can Do": {
+            "World": null
+        },
+        "This Novel Is Amazing!": {
+            "World": null
+        },
+        "Timaeus' Alchemy Tutorial": {
+            "World": null
+        },
+        "Urgent Repairs": {
+            "World": null
+        },
+        "Where is the Unseen Razor?": {
+            "World": null
+        },
+        "Whispers in the Wind": {
+            "World": null
+        },
+        "Wine, With a Taste of Freedom": {
+            "World": null
+        },
+        "Yanxiao's Dilemma": {
             "World": null
         }
     }
