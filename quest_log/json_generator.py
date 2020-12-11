@@ -18,6 +18,8 @@ for line in open('Mondstadt.txt'):
             }
         new_data.update({line: req})
 data['World']['Mondstadt'].update(new_data)
+data['World']['Mondstadt'] = {i:data['World']['Mondstadt'][i] for i in
+        sorted(data['World']['Mondstadt'])}
 
 new_data = {}
 
@@ -34,6 +36,8 @@ for line in open('Liyue.txt'):
             }
         new_data.update({line: req})
 data['World']['Liyue'].update(new_data)
+data['World']['Liyue'] = {i:data['World']['Liyue'][i] for i in
+        sorted(data['World']['Liyue'])}
 
 new_data = {}
 
@@ -45,6 +49,8 @@ for line in open('Commissions.txt'):
             }
         new_data.update({line: req})
 data['Commission'].update(new_data)
+data['Commission'] = {i:data['Commission'][i] for i in
+        sorted(data['Commission'])}
 
-with open('new.json', 'w') as f:
-    json.dump(data, f, indent=4, sort_keys=True)
+with open('new_missions.json', 'w') as f:
+    json.dump(data, f, indent=4)
