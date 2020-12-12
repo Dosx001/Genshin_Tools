@@ -2,24 +2,89 @@
     "Archon": {
         "Prologue": {
             "The Outlander Who Caught the Wind": {
-                "Adventure Rank": null
+                "Adventure Rank": null,
+                "quests": [
+                    "Bird's Eye View",
+                    "Unexpected Power",
+                    "Forest Rendezvous",
+                    "Wind-Riding Knight",
+                    "Going Upon the Breeze",
+                    "City of Freedom",
+                    "Dragon Storm",
+                    "Knights of Favonius",
+                    "Winds of the Past",
+                    "Crash Course",
+                    "Sparks Amongst the Pages"
+                ]
             },
             "For a Tomorrow Without Tears": {
-                "Adventure Rank": 10
+                "Adventure Rank": 10,
+                "quests": [
+                    "Shadow over Mondstadt",
+                    "Unexpected Encounter",
+                    "That Green Fellow",
+                    "Let the Wind Lead",
+                    "Venti's Plan",
+                    "Venti's New Plan",
+                    "Wild Escape",
+                    "Behind the Scenes",
+                    "Chasing Shadows",
+                    "State of the Holy Lyre der Himmel",
+                    "Fallen Tears",
+                    "Hidden Tears",
+                    "Stolen Tears",
+                    "Crystal Tears",
+                    "Reunion with the Dragon"
+                ]
             },
             "Song of the Dragon and Freedom": {
-                "Adventure Rank": 18
+                "Adventure Rank": 18,
+                "quests": [
+                    "Abyss Mage",
+                    "Hurdle",
+                    "Empty Abode",
+                    "Light Guiding Ceremony",
+                    "Calm Before the Storm",
+                    "A Long Shot",
+                    "When the Wind Dies Down",
+                    "Ending Note"
+                ]
             }
         },
         "Chapter 1": {
             "Of the Land Amidst Monoliths": {
-                "Adventure Rank": 23
+                "Adventure Rank": 23,
+                "quests": [
+                    "Rite of Descension",
+                    "An Impromptu Change of Plan",
+                    "Wangshu",
+                    "Moulder of Mountains",
+                    "Custodian of Clouds",
+                    "Dust to Dust"
+                ]
             },
             "Farewell, Archaic Lord": {
-                "Adventure Rank": 29
+                "Adventure Rank": 29,
+                "quests": [
+                    "An Organization Known as Wangsheng",
+                    "Moonfinger",
+                    "Three Poignant Perfumes",
+                    "The Realm Within",
+                    "Downtown",
+                    "Guizhong",
+                    "Zhongli's Treat"
+                ]
             },
             "A New Star Approaches": {
-                "Adventure Rank": 35
+                "Adventure Rank": 35,
+                "quests": [
+                    "The Floating Palace",
+                    "Equilibrium",
+                    "Solitary Fragrance",
+                    "Heart of Glaze",
+                    "Turning Point",
+                    "The Fond Farewell"
+                ]
             }
         }
     },
@@ -31,7 +96,7 @@
                 "Archon": "Dragon Storm",
                 "World": null,
                 "Commission": null,
-                "NPC": "Dr. Livingstone"
+                "NPC": "Cyrus"
             },
             "After the Storm": {
                 "Location": "Mondstadt",
@@ -39,7 +104,7 @@
                 "Archon": "Song of the Dragon and Freedom",
                 "World": null,
                 "Commission": null,
-                "NPC": null
+                "NPC": "Wagner"
             },
             "Break the Sword Cemetery Seal": {
                 "Location": "Dadaupa Gorge",
@@ -47,7 +112,7 @@
                 "Archon": "Song of the Dragon and Freedom",
                 "World": null,
                 "Commission": null,
-                "NPC": null
+                "NPC": "Dr. Livingstone"
             },
             "Busy Adventurers' Guild": {
                 "Location": "Mondstadt",
@@ -55,7 +120,7 @@
                 "Archon": null,
                 "World": "Welcome to the Adventurers' Guild",
                 "Commission": null,
-                "NPC": null
+                "NPC": "Katheryne"
             },
             "Cleanup At Dawn": {
                 "Location": "Dawn Winery",
@@ -63,7 +128,7 @@
                 "Archon": "Song of the Dragon and Freedom",
                 "World": null,
                 "Commission": null,
-                "NPC": null
+                "NPC": "Adelinde"
             },
             "Collector of Anemo Sigils": {
                 "Location": "Mondstadt",
@@ -71,7 +136,7 @@
                 "Archon": null,
                 "World": null,
                 "Commission": null,
-                "NPC": null
+                "NPC": "Marjorie"
             },
             "Equivalent Exchange": {
                 "Location": "Cathedral",
@@ -79,28 +144,28 @@
                 "Archon": null,
                 "World": null,
                 "Commission": "Tales of Winter",
-                "NPC": null
+                "NPC": "Viktor"
             },
             "Every Day a New Adventure": {
-                "Location": null,
-                "Adventure Rank": null,
+                "Location": "Mondstadt",
+                "Adventure Rank": 12,
                 "Archon": null,
-                "World": null,
+                "World": "Welcome to the Adventurers' Guild",
                 "Commission": null,
-                "NPC": null
+                "NPC": "Katheryne"
             },
             "Flighty Flora... and Flora": {
-                "Location": null,
+                "Location": "Mondstadt",
                 "Adventure Rank": null,
                 "Archon": null,
                 "World": null,
                 "Commission": null,
-                "NPC": null
+                "NPC": "Flora"
             },
             "In the Aftermath": {
-                "Location": null,
+                "Location": "Mondstadt",
                 "Adventure Rank": null,
-                "Archon": null,
+                "Archon": "Song of the Dragon and Freedom",
                 "World": null,
                 "Commission": null,
                 "NPC": null
