@@ -32,6 +32,7 @@
       <li><img src="/media/Quest_Log/NPC.png"> NPC</li>
       <li><img src="/media/Quest_Log/Adventure_Rank.png"> Adventure Rank</li>
       <li><img src="/media/Quest_Log/Check.png"> Cleared</li>
+      <li><img src="/media/Quest_Log/Location.png"> Location</li>
     </ul>
   </aside>
 
@@ -69,7 +70,7 @@
                       {% elif req == 'Adventure Rank' %}
                         <img src="/media/Quest_Log/Adventure_Rank.png">: {{ other }}
                       {% else %}
-                        <b>{{ req }}</b>: {{ other }}
+                        <img src="/media/Quest_Log/Location.png">: {{ other }}
                       {% endif %}
                     </span>
                   </div>
