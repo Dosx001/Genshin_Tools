@@ -38,25 +38,34 @@
   <!-- Archon -->
   <div class='content-section'>
     <h1 id='Archon'>Archon Quests</h1>
-    {% for chapter, missions in Archon.items %}
+    {% for chapter, acts in Archon.items %}
       <div class='content-section'>
         <h3 id='{{ chapter }}'>{{ chapter }}</h3>
-        {% for mission, reqs in missions.items %}
+        {% for mission, reqs in acts.items %}
           <ul class="list-group">
             <li class="list-group-item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input"
-                  id="defaultUnchecked-{{mission}}"
-                  {% if Check|Dict_finder:mission %} checked {% endif %}>
-                <label class="custom-control-label" for="defaultUnchecked-{{mission}}">
-                  {{ mission }}
-                </label>
-              </div>
+              <h5 id='{{ mission }}'>
+                {{ mission }}
+              </h5>
               {% for req, other in reqs.items %}
-                {% if other != None %}
+                {% if req == 'Adventure Rank' and other != None %}
                   <div>
                     <span><img src="/media/Quest_Log/Adventure_Rank.png">: {{ other }}</span>
                   </div>
+                {% else %}
+                  <ul class="list-group">
+                    {% for quest in other %}
+                      <li id='{{ quest }}' class="list-group-item">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input"
+                            id="defaultUnchecked-{{ quest }}">
+                          <label class="custom-control-label" for="defaultUnchecked-{{i}}">
+                            {{ quest }}
+                          </label>
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
                 {% endif %}
               {% endfor %}
             </li>
