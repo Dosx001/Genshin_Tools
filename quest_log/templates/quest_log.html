@@ -8,18 +8,18 @@
   <aside id='contents' class="sidebar" role="navigation">
     <text id='title'>Contents</text>
     <ul>
-      <li class="toclevel-1 tocsection-1"><a href="#Archon">Archon Quests</a></li>
-        <ul>
-          <li class="toclevel-2 tocsection-2"><a href='#Prologue'>Prologue</a></li>
-          <li class="toclevel-2 tocsection-2"><a href='#Chapter 1'>Chapter 1</a></li>
-        </ul>
-      </li>
       <li class="toclevel-1 tocsection-4"><a href="#World">World Quests</a></li>
         <ul>
           <li class="toclevel-2 tocsection-2"><a href='#Mondstadt'>Mondstadt</a></li>
           <li class="toclevel-2 tocsection-2"><a href='#Liyue'>Liyue</a></li>
         </ul>
       <li class="toclevel-1 tocsection-4"><a href="#Commissions">Commissions</a></li>
+      <li class="toclevel-1 tocsection-1"><a href="#Archon">Archon Quests</a></li>
+        <ul>
+          <li class="toclevel-2 tocsection-2"><a href='#Prologue'>Prologue</a></li>
+          <li class="toclevel-2 tocsection-2"><a href='#Chapter 1'>Chapter 1</a></li>
+        </ul>
+      </li>
     </ul>
   </aside>
 
@@ -34,46 +34,6 @@
       <li><img src="/media/Quest_Log/Check.png"> Cleared</li>
     </ul>
   </aside>
-
-  <!-- Archon -->
-  <div class='content-section'>
-    <h1 id='Archon'>Archon Quests</h1>
-    {% for chapter, acts in Archon.items %}
-      <div class='content-section'>
-        <h3 id='{{ chapter }}'>{{ chapter }}</h3>
-        {% for mission, reqs in acts.items %}
-          <ul class="list-group">
-            <li class="list-group-item">
-              <h5 id='{{ mission }}'>
-                {{ mission }}
-              </h5>
-              {% for req, other in reqs.items %}
-                {% if req == 'Adventure Rank' and other != None %}
-                  <div>
-                    <span><img src="/media/Quest_Log/Adventure_Rank.png">: {{ other }}</span>
-                  </div>
-                {% else %}
-                  <ul class="list-group">
-                    {% for quest in other %}
-                      <li id='{{ quest }}' class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input"
-                            id="defaultUnchecked-{{ quest }}">
-                          <label class="custom-control-label" for="defaultUnchecked-{{i}}">
-                            {{ quest }}
-                          </label>
-                        </div>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              {% endfor %}
-            </li>
-          </ul>
-        {% endfor %}
-      </div>
-    {% endfor %}
-  </div>
 
   <!-- World -->
   <div class='content-section'>
@@ -145,6 +105,46 @@
           {% endfor %}
         </li>
       </ul>
+    {% endfor %}
+  </div>
+
+  <!-- Archon -->
+  <div class='content-section'>
+    <h1 id='Archon'>Archon Quests</h1>
+    {% for chapter, acts in Archon.items %}
+      <div class='content-section'>
+        <h3 id='{{ chapter }}'>{{ chapter }}</h3>
+        {% for mission, reqs in acts.items %}
+          <ul class="list-group">
+            <li class="list-group-item">
+              <h5 id='{{ mission }}'>
+                {{ mission }}
+              </h5>
+              {% for req, other in reqs.items %}
+                {% if req == 'Adventure Rank' and other != None %}
+                  <div>
+                    <span><img src="/media/Quest_Log/Adventure_Rank.png">: {{ other }}</span>
+                  </div>
+                {% else %}
+                  <ul class="list-group">
+                    {% for quest in other %}
+                      <li id='{{ quest }}' class="list-group-item">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input"
+                            id="defaultUnchecked-{{ quest }}">
+                          <label class="custom-control-label" for="defaultUnchecked-{{i}}">
+                            {{ quest }}
+                          </label>
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endfor %}
+            </li>
+          </ul>
+        {% endfor %}
+      </div>
     {% endfor %}
   </div>
 {% endblock content %}
