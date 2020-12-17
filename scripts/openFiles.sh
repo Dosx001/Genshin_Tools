@@ -18,4 +18,14 @@ then
         "+vs pity_counter/templates/pity_counter/pity_counter.html | tabn" \
         "+vs quest_log/templates/quest_log.html | tabn" \
         "+tabe website/templates/website/base.html | tabmove 0"
+elif [ $1 == 'c' ]
+then
+    vim -p website/static/random_event/styles.css \
+        website/static/pity_counter/styles.css \
+        website/static/quest_log/styles.css \
+        website/static/website/main.css \
+        "+vs random_event/templates/random_event.html | tabn" \
+        "+vs pity_counter/templates/pity_counter/pity_counter.html | tabn" \
+        "+vs quest_log/templates/quest_log.html | tabn" \
+        "+vs website/templates/website/base.html | tabmove 0"
 fi
