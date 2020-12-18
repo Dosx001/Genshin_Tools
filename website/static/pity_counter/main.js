@@ -16,24 +16,32 @@ $(document).ready(function(){
                     var element = document.getElementById('char');
                 } else if (but.id == 'Weap') {
                     var element = document.getElementById('weap');
-                } else {
+                } else if (but.id == 'Stan') {
                     var element = document.getElementById('stan');
                 }
                 if (but.value == 'reset') {
                     element.innerHTML = 0;
-                } else {
+                } else if (but.id != 'test') {
                     element.innerHTML = parseInt(element.innerHTML) + parseInt(but.value);
                 }
                 if (but.id == 'Weap'){
-                    if (element.innerHTML >= 80){
+                    if (element.innerHTML >= 80) {
                         element.innerHTML = 0
                     }
-                } else {
+                } else if (but.id != 'test') {
                     if (element.innerHTML >= 90) {
                         element.innerHTML = 0;
                     }
                 }
             }
         })
+    });
+
+    $('#test').click(function() {
+        var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
+        var primogems = $('#primogems')[0];
+        var blessing = $('#blessing')[0];
+        console.log(blessing.checked);
+
     });
 });
