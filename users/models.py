@@ -11,6 +11,7 @@ class Profile(models.Model):
     standard = models.IntegerField(default=0)
     event = models.IntegerField(default=10)
     date = models.DateTimeField(default=timezone.now)
+    blessing = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.username} Profile'
