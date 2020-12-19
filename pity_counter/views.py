@@ -22,25 +22,22 @@ class PityCounterView(View):
                 request.user.profile.character = 0
             else:
                 request.user.profile.character += int(value)
-            check = request.user.profile.character
+            if request.user.profile.character >= 90:
+                request.user.profile.character = 0
         elif pity == 'Weap':
             if value == 'reset':
                 request.user.profile.weapon = 0
             else:
                 request.user.profile.weapon += int(value)
-            check = request.user.profile.weapon
+            if request.user.profile.weapon >= 80:
+                request.user.profile.weapon = 0
         else:
             if value == 'reset':
                 request.user.profile.standard = 0
             else:
                 request.user.profile.standard += int(value)
-            check = request.user.profile.standard
-        if pity == 'Char' and check >= 90:
-            request.user.profile.character = 0
-        elif pity == 'Weap' and check >= 80:
-            request.user.profile.weapon = 0
-        elif pity == 'Stan' and check >= 90:
-            request.user.profile.standard = 0
+            if request.user.profile.standard >= 90:
+                request.user.profile.standard = 0
         request.user.profile.save()
         return redirect('pity_counter')
 
