@@ -1,7 +1,7 @@
 $(document).ready(function(){
+    var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
     $('.btn').click(function(){
         var but = $(this)[0];
-        var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
 
         $.ajax({
             url: '',
@@ -38,7 +38,6 @@ $(document).ready(function(){
     });
 
     $('#blessing').on('change', function() {
-        var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
 
         $.ajax({
             url: 'blessing/',

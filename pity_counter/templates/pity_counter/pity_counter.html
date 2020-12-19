@@ -20,62 +20,53 @@
         Blessing of the Welkin Moon
       </label>
     </div>
-  </form>
 
-  <!-- Character Banner -->
-  <div class="content-section">
-    <form method='post'>
-      {% csrf_token %}
-      <h1>Character Banner</h1>
+    <!-- Character Banner -->
+    <div class="content-section">
+        <h1>Character Banner</h1>
+        <div>
+          <h5>Total Rolls: </h5>
+          <h2 id='char'>{{ profile.character }}</h2>
+        </div>
+        <button type=button value='1' id='Char' class="btn btn-outline-info">+1</button>
+        <button type=button value='10' id='Char' class="btn btn-outline-info">+10</button>
+        <div>
+          <button type=button value='reset' id='Char' class="btn btn-outline-info">Reset</button>
+        </div>
+      <small>*Pity counter reset at 90</small>
       <div>
-        <h5>Total Rolls: </h5>
-        <h2 id='char'>{{ profile.character }}</h2>
+        <button type=button id='test' class="btn btn-outline-info">Test</button>
       </div>
-      <button type=button value='1' id='Char' class="btn btn-outline-info">+1</button>
-      <button type=button value='10' id='Char' class="btn btn-outline-info">+10</button>
-      <div>
-        <button type=button value='reset' id='Char' class="btn btn-outline-info">Reset</button>
-      </div>
-    </form>
-    <small>*Pity counter reset at 90</small>
-    <div>
-      <button type=button id='test' class="btn btn-outline-info">Test</button>
     </div>
-  </div>
 
-  <!-- Weapon Banner -->
-  <div class="content-section">
-    <form method='post'>
-      {% csrf_token %}
-      <h1>Weapon Banner</h1>
-      <div>
-        <h5>Total Rolls: </h5>
-        <h2 id="weap">{{ profile.weapon }}</h2>
-      </div>
-      <button type=button value='1' id='Weap' class="btn btn-outline-info">+1</button>
-      <button type=button value='10' id='Weap' class="btn btn-outline-info">+10</button>
-      <div>
-        <button type=button value='reset' id='Weap' class="btn btn-outline-info">Reset</button>
-      </div>
-    </form>
-    <small>*Pity counter reset at 80</small>
-  </div>
+    <!-- Weapon Banner -->
+    <div class="content-section">
+        <h1>Weapon Banner</h1>
+        <div>
+          <h5>Total Rolls: </h5>
+          <h2 id="weap">{{ profile.weapon }}</h2>
+        </div>
+        <button type=button value='1' id='Weap' class="btn btn-outline-info">+1</button>
+        <button type=button value='10' id='Weap' class="btn btn-outline-info">+10</button>
+        <div>
+          <button type=button value='reset' id='Weap' class="btn btn-outline-info">Reset</button>
+        </div>
+      <small>*Pity counter reset at 80</small>
+    </div>
 
-  <!-- Standard Banner -->
-  <div class="content-section">
-    <form method='post'>
-      {% csrf_token %}
-      <h1>Standard Banner</h1>
-      <div>
-        <h5>Total Rolls: </h5>
-        <h2 id="stan">{{ profile.standard }}</h2>
-      </div>
-      <button type=button value='1' id='Stan' class="btn btn-outline-info">+1</button>
-      <button type=button value='10' id='Stan' class="btn btn-outline-info">+10</button>
-      <div>
-        <button type=button value='reset' id='Stan' class="btn btn-outline-info">Reset</button>
-      </div>
-    </form>
-    <small>*Pity counter reset at 90</small>
-  </div>
+    <!-- Standard Banner -->
+    <div class="content-section">
+        <h1>Standard Banner</h1>
+        <div>
+          <h5>Total Rolls: </h5>
+          <h2 id="stan">{{ profile.standard }}</h2>
+        </div>
+        <button type=button value='1' id='Stan' class="btn btn-outline-info">+1</button>
+        <button type=button value='10' id='Stan' class="btn btn-outline-info">+10</button>
+        <div>
+          <button type=button value='reset' id='Stan' class="btn btn-outline-info">Reset</button>
+        </div>
+      <small>*Pity counter reset at 90</small>
+    </div>
+  </form>
 {% endblock content %}
