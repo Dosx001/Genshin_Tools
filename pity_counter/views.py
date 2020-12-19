@@ -49,3 +49,15 @@ class BlessingView(View):
         request.user.profile.blessing = not request.user.profile.blessing
         request.user.save()
         return redirect('pity_counter')
+
+class ReportView(View):
+    def post(self, request):
+        primogems = int(request.POST.get('primogems', None))
+        pity = 90 - request.user.profile.character
+        primo = pity * 160 - primogems
+        days = round(primo / 150 if request.user.profile.blessing else primo / 60, 1)
+        context = {
+            'primo': primo,
+            'days': days
+            }
+        return JsonResponse(context)
