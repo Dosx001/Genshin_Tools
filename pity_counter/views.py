@@ -43,3 +43,9 @@ class PityCounterView(View):
             request.user.profile.standard = 0
         request.user.profile.save()
         return redirect('pity_counter')
+
+class BlessingView(View):
+    def post(self, request):
+        request.user.profile.blessing = not request.user.profile.blessing
+        request.user.save()
+        return redirect('pity_counter')

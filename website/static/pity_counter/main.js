@@ -37,6 +37,18 @@ $(document).ready(function(){
         })
     });
 
+    $('#blessing').on('change', function() {
+        var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
+
+        $.ajax({
+            url: 'blessing/',
+            data: {
+                csrfmiddlewaretoken: csrfToken,
+            },
+            type: 'post',
+        })
+    });
+
     $('#test').click(function() {
         var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
         var primogems = $('#primogems')[0];

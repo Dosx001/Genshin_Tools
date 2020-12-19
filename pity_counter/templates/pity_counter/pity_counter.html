@@ -4,24 +4,23 @@
   <script src="{% static 'pity_counter/main.js' %}"></script>
   <link rel="stylesheet" href="{% static 'pity_counter/styles.css' %}">
 
-  <div>
-    <form method='post'>
-      {% csrf_token %}
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Primogems</span>
-        </div>
-          <input type="number" class="form-control" id="primogems" value='0'>
+  <form method='post'>
+    {% csrf_token %}
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Primogems</span>
       </div>
+        <input type="number" class="form-control" id="primogems" value='0'>
+    </div>
 
-      <div align='center' class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="blessing">
-        <label class="custom-control-label" for="blessing">
-          Blessing of the Welkin Moon
-        </label>
-      </div>
-    </form>
-  </div>
+    <div align='center' class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="blessing"
+        {% if profile.blessing %} checked="" {% endif %}>
+      <label class="custom-control-label" for="blessing">
+        Blessing of the Welkin Moon
+      </label>
+    </div>
+  </form>
 
   <!-- Character Banner -->
   <div class="content-section">
