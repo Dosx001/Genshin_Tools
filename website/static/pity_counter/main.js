@@ -15,16 +15,14 @@ $(document).ready(function(){
                 type: 'post',
                 success: function(response) {
                     $('#report').remove();
-                    var report = '' +
-                        '<h3 id="report"><b>Time</b>: ' +
-                        response.days +
-                        ' days <br><b>Date</b>: ' +
-                        response.date +
-                        '<br><b>Cost</b>: ' +
-                        response.primogems +
-                        ' primogems<br><b>Price</b>: $' +
-                        response.price +
-                        '</h3>';
+                    var report = '<table id="report" class="table table-hover"><tbody>';
+                    for (var itr in response) {
+                        report += '<tr><th scope="row">' + itr + '</th><td>';
+                        if (itr == 'Price') {
+                            report += '$'
+                        }
+                        report += response[itr] + '</td>';
+                    }
                     if (but.value == 'Char') {
                         $('#CharBan').append(report);
                     } else if (but.value == 'Weap') {

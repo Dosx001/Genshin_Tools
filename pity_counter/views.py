@@ -55,10 +55,10 @@ class ReportView(View):
         price = self.price(request, primogems)
         days, Date = self.Date(request, primogems)
         context = {
-            'primogems': primogems,
-            'days': days,
-            'date': Date,
-            'price': price
+            'Days': days,
+            'Date': Date,
+            'Primogems': primogems,
+            'Price': price
             }
         return JsonResponse(context)
 
