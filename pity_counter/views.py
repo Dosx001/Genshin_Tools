@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.http import JsonResponse
+from datetime import date
+import datetime
 
 from users.models import Profile
 
@@ -49,12 +51,48 @@ class BlessingView(View):
 
 class ReportView(View):
     def post(self, request):
-        primogems = int(request.POST.get('primogems', None))
-        pity = 90 - request.user.profile.character
-        primo = pity * 160 - primogems
-        days = round(primo / 150 if request.user.profile.blessing else primo / 60, 1)
+        primo = self.Primo(request)
+        price = self.price(request, primo)
+        days, Date = self.Date(request, primo)
         context = {
             'primo': primo,
-            'days': days
+            'days': days,
+            'date': Date,
+            'price': price
             }
         return JsonResponse(context)
+
+    def Primo(self, request):
+        primogems = int(request.POST.get('primogems', None))
+        banner = request.POST.get('banner', None)
+        if banner == 'Char':
+            pity = 90 - request.user.profile.character
+        elif banner == 'Weap':
+            pity = 80 - request.user.profile.weapon
+        else:
+            pity = 90 - request.user.profile.standard
+        return pity * 160 - primogems
+
+    def price(self, request, primo):
+        tier6 = primo // 6480
+        primo %= 6480
+        tier5 = primo // 3280
+        primo %= 3280
+        tier4 = primo // 1980
+        primo %= 1980
+        tier3 = primo // 980
+        primo %= 980
+        tier2 = primo // 300
+        primo %= 300
+        tier1 = primo // 60
+        primo %= 60
+        if primo != 0:
+            tier1 += 1
+        return round((99.99 * tier6) + (49.99 * tier5) + (29.99 * tier4)
+            + (14.99 * tier3) + (4.99 * tier2) + (.99 * tier1), 2)
+
+    def Date(self, request, primo):
+        days = round(primo / 150 if request.user.profile.blessing else primo / 60, 1)
+        Date = date.today()
+        Date = Date + datetime.timedelta(days if days % 1 == 0 else days + 1)
+        return days, Date.strftime('%B %d, %Y')

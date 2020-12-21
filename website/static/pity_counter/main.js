@@ -10,18 +10,28 @@ $(document).ready(function(){
                 data: {
                     csrfmiddlewaretoken: csrfToken,
                     primogems: primogems,
+                    banner: but.value
                 },
                 type: 'post',
                 success: function(response) {
-                    primo = response.primo;
                     $('#report').remove();
-                    $('#CharBan').append(
-                        '<h3 id="report">Time: '
-                        + response.days +
-                        ' days <br>Cost: '
-                        + response.primo +
-                        ' primogems</h3>'
-                    );
+                    var report = '' +
+                        '<h3 id="report"><b>Time</b>: ' +
+                        response.days +
+                        ' days <br><b>Date</b>: ' +
+                        response.date +
+                        '<br><b>Cost</b>: ' +
+                        response.primo +
+                        ' primogems<br><b>Price</b>: $' +
+                        response.price +
+                        '</h3>';
+                    if (but.value == 'Char') {
+                        $('#CharBan').append(report);
+                    } else if (but.value == 'Weap') {
+                        $('#WeapBan').append(report);
+                    } else {
+                        $('#StanBan').append(report);
+                    }
                 }
             })
         } else {

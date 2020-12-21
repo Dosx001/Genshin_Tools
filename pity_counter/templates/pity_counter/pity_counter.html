@@ -35,12 +35,12 @@
         </div>
       <small>*Pity counter reset at 90</small>
       <div>
-        <button type=button id='reporter' class="btn btn-outline-info">Test</button>
+        <button type=button value='Char' id='reporter' class="btn btn-outline-info">Report</button>
       </div>
     </div>
 
     <!-- Weapon Banner -->
-    <div class="content-section">
+    <div class="content-section" id='WeapBan'>
         <h1>Weapon Banner</h1>
         <div>
           <h5>Total Rolls: </h5>
@@ -52,10 +52,13 @@
           <button type=button value='reset' id='Weap' class="btn btn-outline-info">Reset</button>
         </div>
       <small>*Pity counter reset at 80</small>
+      <div>
+        <button type=button value='Weap' id='reporter' class="btn btn-outline-info">Report</button>
+      </div>
     </div>
 
     <!-- Standard Banner -->
-    <div class="content-section">
+    <div class="content-section" id='StanBan'>
         <h1>Standard Banner</h1>
         <div>
           <h5>Total Rolls: </h5>
@@ -67,6 +70,9 @@
           <button type=button value='reset' id='Stan' class="btn btn-outline-info">Reset</button>
         </div>
       <small>*Pity counter reset at 90</small>
+      <div>
+        <button type=button value='Stan' id='reporter' class="btn btn-outline-info">Report</button>
+      </div>
     </div>
   </form>
 {% endblock content %}
