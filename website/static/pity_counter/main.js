@@ -21,7 +21,7 @@ $(document).ready(function(){
                         ' days <br><b>Date</b>: ' +
                         response.date +
                         '<br><b>Cost</b>: ' +
-                        response.primo +
+                        response.primogems +
                         ' primogems<br><b>Price</b>: $' +
                         response.price +
                         '</h3>';

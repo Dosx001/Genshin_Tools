@@ -51,19 +51,18 @@ class BlessingView(View):
 
 class ReportView(View):
     def post(self, request):
-        primo = self.Primo(request)
-        price = self.price(request, primo)
-        days, Date = self.Date(request, primo)
+        primogems = self.primogems(request)
+        price = self.price(request, primogems)
+        days, Date = self.Date(request, primogems)
         context = {
-            'primo': primo,
+            'primogems': primogems,
             'days': days,
             'date': Date,
             'price': price
             }
         return JsonResponse(context)
 
-    def Primo(self, request):
-        primogems = int(request.POST.get('primogems', None))
+    def primogems(self, request):
         banner = request.POST.get('banner', None)
         if banner == 'Char':
             pity = 90 - request.user.profile.character
@@ -71,28 +70,21 @@ class ReportView(View):
             pity = 80 - request.user.profile.weapon
         else:
             pity = 90 - request.user.profile.standard
-        return pity * 160 - primogems
+        return pity * 160 - int(request.POST.get('primogems', None))
 
     def price(self, request, primo):
-        tier6 = primo // 6480
-        primo %= 6480
-        tier5 = primo // 3280
-        primo %= 3280
-        tier4 = primo // 1980
-        primo %= 1980
-        tier3 = primo // 980
-        primo %= 980
-        tier2 = primo // 300
-        primo %= 300
-        tier1 = primo // 60
-        primo %= 60
+        bundles = ((6480, 99.99), (3280, 49.99), (1980, 29.99),
+            (980, 14.99), (300, 4.99), (60, 0.99))
+        price = 0
+        for i in range(6):
+            price += (primo // bundles[i][0]) * bundles[i][1]
+            primo %= bundles[i][0]
         if primo != 0:
-            tier1 += 1
-        return round((99.99 * tier6) + (49.99 * tier5) + (29.99 * tier4)
-            + (14.99 * tier3) + (4.99 * tier2) + (.99 * tier1), 2)
+            price += .99
+        return round(price, 2)
 
-    def Date(self, request, primo):
-        days = round(primo / 150 if request.user.profile.blessing else primo / 60, 1)
+    def Date(self, request, primogems):
+        days = round(primogems / 150 if request.user.profile.blessing else primogems / 60, 1)
         Date = date.today()
         Date = Date + datetime.timedelta(days if days % 1 == 0 else days + 1)
         return days, Date.strftime('%B %d, %Y')
