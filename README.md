@@ -3,8 +3,8 @@ Genshin Tools is a website hosting an array of tools to enhance the player expir
 
 # Table of Contents
 * [Functional](#functional)
-    * [Random Event](#random-event)
     * [Pity Counter](#pity-counteer)
+    * [Random Event](#random-event)
 * [In Production](#in-production)
     * [Quest Log](#quest-log)
 * [Concept](#concept)
@@ -13,6 +13,21 @@ Genshin Tools is a website hosting an array of tools to enhance the player expir
     * [Resource Converter](#resource-converter)
 
 # Functional
+
+## Pity Counter
+The Pity Counter page keeps track of users’ number of wishes made for each banner. Users can increase the counter by using the “+1” or “+10” button. The counters will also automatically reset when users hit pity, at 90 wishes for Character and Standard banner and 80 for the Weapon Banner. If users pull a 5-star item in-game, then users can reset their Genshin Tools pity counter to 0 by using the “Reset” button. Users can use the “Report” button to display the number of days until pity, the date when the user hits pity, the number of primogems needed for pity, and the minimum price of the primogems. The report assumes the user plays every day, completes their daily commissions, and claims their daily rewards. If users have the Blessing of the Welkin Moon (BotWM) then users can check the BotWN check box, then their report will take into account the BotWM. If users have primogems in their in-game inventory they can also input them into the Pity Counter page, and the report will take account of their primogems for their report.
+
+<p align="center">
+    Pity Counter Page
+</p>
+
+![pity counter](https://i.imgur.com/o0RY8vq.png)
+
+<p align="center">
+    In-game Character Banner
+</p>
+
+![banner](https://i.imgur.com/bVaZd0V.png)
 
 ## Random Event
 The Random Event page keeps track of the daily number of in-game [Random Events](https://genshin-impact.fandom.com/wiki/Random_Event) left. Users can subtract one from the counter using the “-1” button. The counter resets every 24 hours. The page also features a video guide on how to effectively complete Random Events.
@@ -24,22 +39,6 @@ The Random Event page keeps track of the daily number of in-game [Random Events]
 ![random event](https://i.imgur.com/cLEKORj.png)
 
 Future implementation of the Random Event page will allow users to pick a time zone to allow the counter to reset at the appropriate time.
-
-
-## Pity Counter
-The Pity Counter page keeps track of users’ number of wishes made for each banner. Users can increase the counter by using the “+1” or “+10” button. If users’ in-game pity counter resets when they pull a 5-star item, users can also reset their Genshin Tools pity counter to 0 by using the “Reset” button. The counters will also automatically reset when they hit pity, at 90 rolls for Character and Standard banner and 90 for the Weapon Banner.
-
-<p align="center">
-    Pity Counter Page
-</p>
-
-![pity counter](https://i.imgur.com/1K5ZFGo.png)
-
-<p align="center">
-    In-game Character Banner
-</p>
-
-![banner](https://i.imgur.com/bVaZd0V.png)
 
 # In Production
 
