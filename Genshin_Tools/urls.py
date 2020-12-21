@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('pity_counter.urls')),
     path('', include('random_event.urls')),
     path('', include('quest_log.urls')),
+    path('', include('resource_converter.urls')),
     path('', include('task.urls')),
 ]
 

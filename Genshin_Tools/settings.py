@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'random_event.apps.RandomEventConfig',
     'quest_log.apps.QuestLogConfig',
+    'resource_converter.apps.ResourceConverterConfig',
     'task.apps.TaskConfig',
     'crispy_forms',
     'django.contrib.admin',
