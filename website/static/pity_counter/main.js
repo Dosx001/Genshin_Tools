@@ -51,17 +51,13 @@ $(document).ready(function(){
                     }
                     if (but.value == 'reset') {
                         element.innerHTML = 0;
-                    } else if (but.id != 'report') {
+                    } else {
                         element.innerHTML = parseInt(element.innerHTML) + parseInt(but.value);
                     }
-                    if (but.id == 'Weap'){
-                        if (element.innerHTML >= 80) {
-                            element.innerHTML = 0
-                        }
-                    } else if (but.id != 'report') {
-                        if (element.innerHTML >= 90) {
-                            element.innerHTML = 0;
-                        }
+                    if (but.id == 'Weap' && element.innerHTML >= 80){
+                        element.innerHTML = 0
+                    } else if (element.innerHTML >= 90) {
+                        element.innerHTML = 0;
                     }
                 }
             })

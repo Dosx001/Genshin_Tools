@@ -19,6 +19,8 @@ class PityCounterView(View):
             return redirect('pity_counter')
         pity = request.POST.get('id', None)
         value = request.POST.get('value', None)
+        if value == None:
+            return redirect('pity_counter')
         if pity == 'Char':
             if value == 'reset':
                 request.user.profile.character = 0
