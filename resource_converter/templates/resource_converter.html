@@ -1,4 +1,38 @@
 {% extends "website/base.html" %}
+{% load static %}
 {% block content %}
-  <h1>test</h1>
+  <link rel="stylesheet" href="{% static 'resource_converter/styles.css' %}">
+  <script src="{% static 'resource_converter/main.js' %}"></script>
+
+  <form>
+    <div class="form-group" align='center'>
+      <label for="ControlSelect">Select Activity</label>
+      <select class="form-control" id="ControlSelect">
+        <option>Boss</option>
+        <option>Domain of Forgery</option>
+        <option>Domain of Mastery</option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">2&nbsp;<img src="/media/resource_converter/star.png"></span>
+      </div>
+        <input type="number" class="form-control" id="2" value='0'>
+      <div class="input-group-prepend">
+        <span class="input-group-text">3&nbsp;<img src="/media/resource_converter/star.png"></span>
+      </div>
+        <input type="number" class="form-control" id="3" value='0'>
+      <div class="input-group-prepend">
+        <span class="input-group-text">4&nbsp;<img src="/media/resource_converter/star.png"></span>
+      </div>
+        <input type="number" class="form-control" id="4" value='0'>
+      <div class="input-group-prepend" id='extra'>
+        <span class="input-group-text">5&nbsp;<img src="/media/resource_converter/star.png"></span>
+      </div>
+        <input type="number" class="form-control" id="5" value='0'>
+    </div>
+    <div align='center'>
+      <button type=button class="btn btn-outline-info">Report</button>
+    </div>
+  </form>
 {% endblock content %}
