@@ -4,16 +4,23 @@
   <link rel="stylesheet" href="{% static 'resource_converter/styles.css' %}">
   <script src="{% static 'resource_converter/main.js' %}"></script>
 
-  <form>
-    <div class="form-group" align='center'>
-      <label for="ControlSelect">Select Activity</label>
+  <form method='post'>
+    {% csrf_token %}
+
+    <!-- Activity -->
+    <div class="input-group mb-3" id='Activity'>
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Activity</span>
+      </div>
       <select class="form-control" id="ControlSelect">
         <option>Boss</option>
         <option>Domain of Forgery</option>
         <option>Domain of Mastery</option>
       </select>
     </div>
-    <div class="input-group mb-3">
+
+    <!-- Materials -->
+    <div class="input-group mb-3" id='Materials'>
       <div class="input-group-prepend">
         <span class="input-group-text">2&nbsp;<img src="/media/resource_converter/star.png"></span>
       </div>
