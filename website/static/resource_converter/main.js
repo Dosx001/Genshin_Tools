@@ -6,11 +6,13 @@ $(document).ready(function() {
         if (selection == 'Domain of Mastery') {
             $('#5').remove();
             $('#extra').remove();
+            $('#5star').remove();
         } else if ($('#5')[0] == null) {
             $('#Materials').append('<div class="input-group-prepend" id="extra">' +
                 '<span class="input-group-text">5&nbsp;' +
                 '<img src="/media/resource_converter/star.png"></span></div>' +
                 '<input type="number" class="form-control" id="5" value="0">');
+            $('#rarity').append('<option id="5star">5</option>');
         }
     });
 
@@ -18,6 +20,9 @@ $(document).ready(function() {
         var selection = $('#ControlSelect')[0].value;
         request_data = {
             activity: selection,
+            rarity: $('#rarity')[0].value,
+            goal: $('#goal')[0].value,
+            world: $('#world')[0].value,
             materials: {
                 star2: $('input[id=2]')[0].value,
                 star3: $('input[id=3]')[0].value,
