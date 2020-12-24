@@ -1,12 +1,12 @@
 #!/bin/bash
 if [ $# == 0 ]
 then
-    vim -p website/urls.py users/urls.py pity_counter/urls.py random_event/urls.py \
+    vim -p website/urls.py users/urls.py random_event/urls.py pity_counter/urls.py \
         quest_log/urls.py resource_converter/urls.py Genshin_Tools/urls.py \
         "+vs website/views.py | tabn" \
         "+vs users/views.py | tabn" \
-        "+vs pity_counter/views.py | tabn" \
         "+vs random_event/views.py | tabn" \
+        "+vs pity_counter/views.py | tabn" \
         "+vs quest_log/views.py | tabn" \
         "+vs resource_converter/views.py | tabn" \
         "+vs Genshin_Tools/settings.py | tabmove 0"
