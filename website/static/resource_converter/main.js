@@ -19,24 +19,24 @@ $(document).ready(function() {
     $('button').click(function() {
         var selection = $('#ControlSelect')[0].value;
         request_data = {
-            activity: selection,
-            rarity: $('#rarity')[0].value,
-            goal: $('#goal')[0].value,
-            world: $('#world')[0].value,
+            rarity: parseInt($('#rarity')[0].value),
+            goal: parseInt($('#goal')[0].value),
             materials: {
-                star2: $('input[id=2]')[0].value,
-                star3: $('input[id=3]')[0].value,
-                star4: $('input[id=4]')[0].value
+                star2: parseInt($('input[id=2]')[0].value),
+                star3: parseInt($('input[id=3]')[0].value),
+                star4: parseInt($('input[id=4]')[0].value)
             }
         }
         if (selection != 'Domain of Mastery') {
-            request_data.materials.star5 = $('input[id=5]')[0].value;
+            request_data.materials.star5 = parseInt($('input[id=5]')[0].value);
         }
         $.ajax({
             url: '',
             type: 'post',
             data: {
                 csrfmiddlewaretoken: csrfToken,
+                activity: selection,
+                adv_rank: parseInt($('#adv_rank')[0].value),
                 data: JSON.stringify(request_data)
             }
         })
