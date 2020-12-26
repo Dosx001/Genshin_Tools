@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
 
-    $('select').change(function() {
+    $('#ControlSelect').change(function() {
         var selection = $(this)[0].value;
         if (selection == 'Domain of Mastery') {
             $('#5').remove();
@@ -36,8 +36,16 @@ $(document).ready(function() {
             data: {
                 csrfmiddlewaretoken: csrfToken,
                 activity: selection,
-                adv_rank: parseInt($('#adv_rank')[0].value),
+                adv_rank: $('#adv_rank')[0].value,
                 data: JSON.stringify(request_data)
+            },
+            success: function(response) {
+                $('#report').remove;
+                for (var object in response) {
+                    for (var item in response[object]) {
+                        console.log(item, response[object][item]);
+                    }
+                }
             }
         })
     });
