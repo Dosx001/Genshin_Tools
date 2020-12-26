@@ -11,86 +11,86 @@ class ResourceConverterView(View):
         data = json.loads(request.POST.get('data', None))
         activity = request.POST.get('activity', None)
         if activity == 'Domain of Mastery':
-            rates = self.mastery(int(request.POST.get('adv_rank', None)))
+            drops = self.mastery(int(request.POST.get('adv_rank', None)))
         elif activity == 'Domain of Forgery':
-            rates = self.forgery(int(request.POST.get('adv_rank', None)))
+            drops = self.forgery(int(request.POST.get('adv_rank', None)))
         else:
-            rates = self.boss(int(request.POST.get('adv_rank', None)))
-        if rates == None:
+            drops = self.boss(int(request.POST.get('adv_rank', None)))
+        if drops == None:
             return JsonResponse(None, safe=False)
         elif data['rarity'] == 2:
-            return JsonResponse(self.two_star(rates, data, activity), safe=False)
+            return JsonResponse(self.two_star(drops, data, activity), safe=False)
         elif data['rarity'] == 3:
-            return JsonResponse(self.three_star(rates, data, activity), safe=False)
+            return JsonResponse(self.three_star(drops, data, activity), safe=False)
         elif data['rarity'] == 4:
-            return JsonResponse(self.four_star(rates, data, activity), safe=False)
+            return JsonResponse(self.four_star(drops, data, activity), safe=False)
         else:
-            return JsonResponse(self.five_star(rates, data, activity), safe=False)
+            return JsonResponse(self.five_star(drops, data, activity), safe=False)
 
     def mastery(self, adv_rank):
         if adv_rank == 27:
-            rates = (range(1, 4), )
+            drops = (range(1, 4), range(1), range(1), range(1))
         elif 27 < adv_rank < 36:
-            rates = (range(1, 4), range(1, 3))
+            drops = (range(1, 4), range(1, 3), range(1), range(1))
         elif 35 < adv_rank < 45:
-            rates = (range(1, 4), range(1, 4))
+            drops = (range(1, 4), range(1, 4), range(1), range(1))
         elif 44 < adv_rank:
-            rates = (range(2, 4), range(0, 4), range(0, 3))
+            drops = (range(2, 4), range(0, 4), range(0, 3), range(1))
         else:
             return
-        return rates
+        return drops
 
     def forgery(self, adv_rank):
         if 15 < adv_rank < 21:
-            rates = (range(4, 7), )
+            drops = (range(4, 7), range(1), range(1), range(1))
         elif 20 < adv_rank < 30:
-            rates = (range(2, 4), range(1, 4))
+            drops = (range(2, 4), range(1, 4), range(1), range(1))
         elif 29 < adv_rank < 40:
-            rates = (range(0, 4), range(1, 4), range(0, 3))
+            drops = (range(0, 4), range(1, 4), range(0, 3), range(1))
         elif 39 < adv_rank:
-            rates = (range(2, 4), range(0, 5), range(0, 4), range(0, 2))
+            drops = (range(2, 4), range(0, 5), range(0, 4), range(0, 2))
         else:
             return
-        return rates
+        return drops
 
     def boss(self, adv_rank):
         if adv_rank < 20: #WL 0
-            rates = (range(1, 4), range(1), range(1), range(1))
+            drops = (range(1, 4), range(1), range(1), range(1))
         elif 19 < adv_rank < 25: #WL 1
-            rates = (range(0, 3), range(1, 3), range(1), range(1))
+            drops = (range(0, 3), range(1, 3), range(1), range(1))
         elif 24 < adv_rank < 30: #WL 2
-            rates = (range(1, 3), range(1, 3), range(1), range(1))
+            drops = (range(1, 3), range(1, 3), range(1), range(1))
         elif 29 < adv_rank < 35: #WL 3
-            rates = (range(0, 3), range(1, 3), range(0, 2), range(1))
+            drops = (range(0, 3), range(1, 3), range(0, 2), range(1))
         elif 34 < adv_rank < 40: #WL 4
-            rates = (range(0, 3), range(1, 4), range(0, 2), range(1))
+            drops = (range(0, 3), range(1, 4), range(0, 2), range(1))
         elif 39 < adv_rank < 45: #WL 5
-            rates = (range(0, 4), range(1, 4), range(0, 2), range(0, 2))
+            drops = (range(0, 4), range(1, 4), range(0, 2), range(0, 2))
         elif 44 < adv_rank < 50: #WL 6
-            rates = (range(1, 4), range(1, 3), range(0, 2), range(0, 2))
+            drops = (range(1, 4), range(1, 3), range(0, 2), range(0, 2))
         elif 49 < adv_rank < 55: #WL 7
-            rates = (range(0, 4), range(1, 5), range(0, 2), range(0, 2))
+            drops = (range(0, 4), range(1, 5), range(0, 2), range(0, 2))
         elif 54 < adv_rank < 61: #WL 8
-            rates = (range(1, 3), range(1, 4), range(0, 2), range(0, 2))
+            drops = (range(1, 3), range(1, 4), range(0, 2), range(0, 2))
         else:
             return
-        return rates
+        return drops
 
-    def two_star(self, rates, data, activity):
+    def two_star(self, drops, data, activity):
         records = []
-        for i in rates[0]:
+        for i in drops[0]:
             tier2 = data['materials']['star2']
             runs = 0
             while tier2 < data['goal']:
                 tier2 += i
                 runs += 1
-            records.append(self.update_record(i, runs, activity))
+            records.append(self.update_record([i, 0, 0, 0], runs, activity))
         return records
 
-    def three_star(self, rates, data, activity):
+    def three_star(self, drops, data, activity):
         records = []
-        for i in rates[1]:
-            for j in rates[0]:
+        for i in drops[1]:
+            for j in drops[0]:
                 tier2 = data['materials']['star2']
                 tier3 = data['materials']['star3']
                 runs = 0
@@ -100,14 +100,14 @@ class ResourceConverterView(View):
                     tier3 += tier2 // 3
                     tier2 = tier2 % 3
                     runs += 1
-                records.append(self.update_record(i, runs, activity))
+                records.append(self.update_record([j, i, 0, 0], runs, activity))
         return records
 
-    def four_star(self, rates, data, activity):
+    def four_star(self, drops, data, activity):
         records = []
-        for i in rates[2]:
-            for j in rates[1]:
-                for k in rates[0]:
+        for i in drops[2]:
+            for j in drops[1]:
+                for k in drops[0]:
                     tier2 = data['materials']['star2']
                     tier3 = data['materials']['star3']
                     tier4 = data['materials']['star4']
@@ -121,15 +121,15 @@ class ResourceConverterView(View):
                         tier4 += tier3 // 3
                         tier3 = tier3 % 3
                         runs += 1
-                    records.append(self.update_record(i, runs, activity))
+                    records.append(self.update_record([k, j, i, 0], runs, activity))
         return records
 
-    def five_star(self, rates, data, activity):
+    def five_star(self, drops, data, activity):
         records = []
-        for i in rates[3]:
-            for j in rates[2]:
-                for k in rates[1]:
-                    for l in rates[0]:
+        for i in drops[3]:
+            for j in drops[2]:
+                for k in drops[1]:
+                    for l in drops[0]:
                         tier2 = data['materials']['star2']
                         tier3 = data['materials']['star3']
                         tier4 = data['materials']['star4']
@@ -146,12 +146,12 @@ class ResourceConverterView(View):
                             tier5 += i
                             tier5 += tier4 // 3
                             runs += 1
-                        records.append(self.update_record(i, runs, activity))
+                        records.append(self.update_record([l, k, j, i], runs, activity))
         return records
 
-    def update_record(self, rate, runs, activity):
+    def update_record(self, drops, runs, activity):
         record = {}
-        record.update({'rate':rate})
+        record.update({'drops':drops})
         record.update({'runs':runs})
         resin = runs * 40 if activity == 'Boss' else runs * 20
         record.update({'resin':resin})

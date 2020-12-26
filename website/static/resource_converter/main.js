@@ -42,7 +42,7 @@ $(document).ready(function() {
             success: function(response) {
                 $('#report').remove();
                 var report = '<table id="report" class="table table-hover">' +
-                    '<thead><tr><th sscpoe="col">Rate</th><th sscpoe="col">Runs</th>' +
+                    '<thead><tr><th sscpoe="col">Drops</th><th sscpoe="col">Runs</th>' +
                     '<th sscpoe="col">Resin</th><th sscpoe="col">Days</th></thead><tbody>';
                 for (var object in response) {
                     report += '<tr>';
