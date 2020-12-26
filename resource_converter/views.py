@@ -54,24 +54,24 @@ class ResourceConverterView(View):
         return rates
 
     def boss(self, adv_rank):
-        if adv_rank < 20:
-            rates = (range(1, 3), )
-        elif 19 < adv_rank < 25:
-            rates = (range(1, 3), range(1, 2))
-        elif 24 < adv_rank < 30:
-            rates = (range(1, 3), range(1, 3))
-        elif 29 < adv_rank < 35:
-            rates = (range(2, 3), range(0, 3), range(0, 2))
-        elif 34 < adv_rank < 40:
-            rates = (range(2, 3), range(0, 3), range(0, 2))
-        elif 39 < adv_rank < 45:
-            rates = (range(2, 3), range(0, 3), range(0, 2))
-        elif 44 < adv_rank < 50:
-            rates = (range(2, 3), range(0, 3), range(0, 2))
-        elif 49 < adv_rank < 55:
-            rates = (range(2, 3), range(0, 3), range(0, 2))
-        elif 54 < adv_rank < 61:
-            rates = (range(2, 3), range(0, 3), range(0, 2))
+        if adv_rank < 20: #WL 0
+            rates = (range(1, 4), range(1), range(1), range(1))
+        elif 19 < adv_rank < 25: #WL 1
+            rates = (range(0, 3), range(1, 3), range(1), range(1))
+        elif 24 < adv_rank < 30: #WL 2
+            rates = (range(1, 3), range(1, 3), range(1), range(1))
+        elif 29 < adv_rank < 35: #WL 3
+            rates = (range(0, 3), range(1, 3), range(0, 2), range(1))
+        elif 34 < adv_rank < 40: #WL 4
+            rates = (range(0, 3), range(1, 4), range(0, 2), range(1))
+        elif 39 < adv_rank < 45: #WL 5
+            rates = (range(0, 4), range(1, 4), range(0, 2), range(0, 2))
+        elif 44 < adv_rank < 50: #WL 6
+            rates = (range(1, 4), range(1, 3), range(0, 2), range(0, 2))
+        elif 49 < adv_rank < 55: #WL 7
+            rates = (range(0, 4), range(1, 5), range(0, 2), range(0, 2))
+        elif 54 < adv_rank < 61: #WL 8
+            rates = (range(1, 3), range(1, 4), range(0, 2), range(0, 2))
         else:
             return
         return rates

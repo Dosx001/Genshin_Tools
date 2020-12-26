@@ -40,12 +40,18 @@ $(document).ready(function() {
                 data: JSON.stringify(request_data)
             },
             success: function(response) {
-                $('#report').remove;
+                $('#report').remove();
+                var report = '<table id="report" class="table table-hover">' +
+                    '<thead><tr><th sscpoe="col">Rate</th><th sscpoe="col">Runs</th>' +
+                    '<th sscpoe="col">Resin</th><th sscpoe="col">Days</th></thead><tbody>';
                 for (var object in response) {
+                    report += '<tr>';
                     for (var item in response[object]) {
-                        console.log(item, response[object][item]);
+                        report += '<td>' + response[object][item] + '</td>';
                     }
+                    report += '</tr>';
                 }
+                $('form').append(report);
             }
         })
     });
