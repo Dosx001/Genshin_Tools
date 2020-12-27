@@ -18,14 +18,8 @@ class ResourceConverterView(View):
             drops = self.boss(int(request.POST.get('adv_rank', None)))
         if drops == None:
             return JsonResponse(None, safe=False)
-        elif data['rarity'] == 2:
-            return JsonResponse(self.two_star(drops, data, activity), safe=False)
-        elif data['rarity'] == 3:
-            return JsonResponse(self.three_star(drops, data, activity), safe=False)
-        elif data['rarity'] == 4:
-            return JsonResponse(self.four_star(drops, data, activity), safe=False)
         else:
-            return JsonResponse(self.five_star(drops, data, activity), safe=False)
+            return JsonResponse(self.report(drops, data, activity), safe=False)
 
     def mastery(self, adv_rank):
         if adv_rank == 27:
@@ -76,78 +70,45 @@ class ResourceConverterView(View):
             return
         return drops
 
-    def two_star(self, drops, data, activity):
-        records = []
-        for i in drops[0]:
-            tier2 = data['materials']['star2']
-            runs = 0
-            while tier2 < data['goal']:
-                tier2 += i
-                runs += 1
-            records.append(self.update_record([i, 0, 0, 0], runs, activity))
-        return records
-
-    def three_star(self, drops, data, activity):
-        records = []
-        for i in drops[1]:
-            for j in drops[0]:
-                tier2 = data['materials']['star2']
-                tier3 = data['materials']['star3']
-                runs = 0
-                while tier3 < data['goal']:
-                    tier2 += j
-                    tier3 += i
-                    tier3 += tier2 // 3
-                    tier2 = tier2 % 3
-                    runs += 1
-                records.append(self.update_record([j, i, 0, 0], runs, activity))
-        return records
-
-    def four_star(self, drops, data, activity):
-        records = []
-        for i in drops[2]:
-            for j in drops[1]:
-                for k in drops[0]:
-                    tier2 = data['materials']['star2']
-                    tier3 = data['materials']['star3']
-                    tier4 = data['materials']['star4']
-                    runs = 0
-                    while tier4 < data['goal']:
-                        tier2 += k
-                        tier3 += j
-                        tier3 += tier2 // 3
-                        tier2 = tier2 % 3
-                        tier4 += i
-                        tier4 += tier3 // 3
-                        tier3 = tier3 % 3
-                        runs += 1
-                    records.append(self.update_record([k, j, i, 0], runs, activity))
-        return records
-
-    def five_star(self, drops, data, activity):
+    def report(self, drops, data, activity):
         records = []
         for i in drops[3]:
             for j in drops[2]:
                 for k in drops[1]:
                     for l in drops[0]:
-                        tier2 = data['materials']['star2']
-                        tier3 = data['materials']['star3']
-                        tier4 = data['materials']['star4']
-                        tier5 = data['materials']['star5']
-                        runs = 0
-                        while tier5 < data['goal']:
-                            tier2 += l
-                            tier3 += k
-                            tier3 += tier2 // 3
-                            tier2 = tier2 % 3
-                            tier4 += j
-                            tier4 += tier3 // 3
-                            tier3 = tier3 % 3
-                            tier5 += i
-                            tier5 += tier4 // 3
-                            runs += 1
+                        star2 = data['materials']['star2']
+                        star3 = data['materials']['star3']
+                        star4 = data['materials']['star4']
+                        if data['rarity'] == 2:
+                            runs = self.counter(0, [l], [star2], data['goal'])
+                        elif data['rarity'] == 3:
+                            runs = self.counter(1, [l, k], [star2, star3], data['goal'])
+                        elif data['rarity'] == 4:
+                            runs = self.counter(2, [l, k, j], [star2, star3, star4], data['goal'])
+                        else:
+                            star5 = data['materials']['star5']
+                            runs = self.counter(3, [l, k, j, i], [star2, star3, star4, star5], data['goal'])
                         records.append(self.update_record([l, k, j, i], runs, activity))
         return records
+
+    def counter(self, rarity, drops, inventory, goal):
+        runs = 0
+        while inventory[rarity] < goal:
+            inventory[0] += drops[0]
+            if rarity > 0:
+                inventory[1] += drops[1]
+                inventory[1] += inventory[0] // 3
+                inventory[0] = inventory[0] % 3
+            if rarity > 1:
+                inventory[2] += drops[2]
+                inventory[2] += inventory[1] // 3
+                inventory[1] = inventory[1] % 3
+            if rarity > 2:
+                inventory[3] += drops[3]
+                inventory[3] += inventory[2] // 3
+                inventory[2] = inventory[2] % 3
+            runs += 1
+        return runs
 
     def update_record(self, drops, runs, activity):
         record = {}
