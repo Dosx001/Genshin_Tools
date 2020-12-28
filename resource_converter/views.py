@@ -82,6 +82,8 @@ class ResourceConverterView(View):
                         else:
                             star5 = data['materials']['star5']
                             runs = self.counter(3, [l, k, j, i], [star2, star3, star4, star5], data['goal'])
+                        if runs == 0:
+                            return True
                         records.append(self.update_record(
                             [l, k, j] if activity == 'Domain of Mastery' else [l, k, j, i],
                             runs, activity
@@ -89,8 +91,9 @@ class ResourceConverterView(View):
                         )
         return records
 
-    def counter(self, rarity, drops, inventory, goal):
-        runs = 0
+    def counter(self, rarity, drops, inventory, goal, runs = 0):
+        if self.check(rarity, inventory, goal):
+            return 0
         while inventory[rarity] < goal:
             inventory[0] += drops[0]
             if rarity > 0:
@@ -107,6 +110,20 @@ class ResourceConverterView(View):
                 inventory[2] = inventory[2] % 3
             runs += 1
         return runs
+
+    def check(self, rarity, inventory, goal):
+        if rarity > 0:
+            inventory[1] += inventory[0] // 3
+            inventory[0] = inventory[0] % 3
+        if rarity > 1:
+            inventory[2] += inventory[1] // 3
+            inventory[1] = inventory[1] % 3
+        if rarity > 2:
+            inventory[3] += inventory[2] // 3
+            inventory[2] = inventory[2] % 3
+        if inventory[rarity] >= goal:
+            return True
+        return False
 
     def update_record(self, drops, runs, activity):
         record = {}

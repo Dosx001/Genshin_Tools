@@ -64,15 +64,21 @@ $(document).ready(function() {
             },
             success: function(response) {
                 $('#report').remove();
-                var report = '<table id="report" class="table table-hover">' +
-                    '<thead><tr><th sscpoe="col">Drops</th><th sscpoe="col">Runs</th>' +
-                    '<th sscpoe="col">Resin</th><th sscpoe="col">Days</th></thead><tbody>';
-                for (var object in response) {
-                    report += '<tr>';
-                    for (var item in response[object]) {
-                        report += '<td>' + response[object][item] + '</td>';
+                if (response == true) {
+                    var report = '<div id="report" align="center"><h1>' +
+                        'Congratulations Traveler! You\'re done.</h1>' +
+                        '<img align="center" src="/media/resource_converter/done.png">';
+                } else {
+                    var report = '<table id="report" class="table table-hover">' +
+                        '<thead><tr><th sscpoe="col">Drops</th><th sscpoe="col">Runs</th>' +
+                        '<th sscpoe="col">Resin</th><th sscpoe="col">Days</th></thead><tbody>';
+                    for (var object in response) {
+                        report += '<tr>';
+                        for (var item in response[object]) {
+                            report += '<td>' + response[object][item] + '</td>';
+                        }
+                        report += '</tr>';
                     }
-                    report += '</tr>';
                 }
                 $('form').append(report);
             }
