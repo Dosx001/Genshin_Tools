@@ -11,63 +11,57 @@ class ResourceConverterView(View):
         data = json.loads(request.POST.get('data', None))
         activity = request.POST.get('activity', None)
         if activity == 'Domain of Mastery':
-            drops = self.mastery(int(request.POST.get('adv_rank', None)))
+            drops = self.mastery(request.POST.get('usr_info', None))
         elif activity == 'Domain of Forgery':
-            drops = self.forgery(int(request.POST.get('adv_rank', None)))
+            drops = self.forgery(request.POST.get('usr_info', None))
         else:
-            drops = self.boss(int(request.POST.get('adv_rank', None)))
+            drops = self.boss(int(request.POST.get('usr_info', None)))
         if drops == None:
             return JsonResponse(None, safe=False)
         else:
             return JsonResponse(self.report(drops, data, activity), safe=False)
 
-    def mastery(self, adv_rank):
-        if adv_rank == 27:
+    def mastery(self, usr_info):
+        if usr_info == '27':
             drops = (range(1, 4), range(1), range(1), range(1))
-        elif 27 < adv_rank < 36:
+        elif usr_info == '28 to 35':
             drops = (range(1, 4), range(1, 3), range(1), range(1))
-        elif 35 < adv_rank < 45:
+        elif usr_info == '36 to 44':
             drops = (range(1, 4), range(1, 4), range(1), range(1))
-        elif 44 < adv_rank:
+        else:
             drops = (range(2, 4), range(0, 4), range(0, 3), range(1))
-        else:
-            return
         return drops
 
-    def forgery(self, adv_rank):
-        if 15 < adv_rank < 21:
+    def forgery(self, usr_info):
+        if usr_info == '16 to 20':
             drops = (range(4, 7), range(1), range(1), range(1))
-        elif 20 < adv_rank < 30:
+        elif usr_info == '21 to 29':
             drops = (range(2, 4), range(1, 4), range(1), range(1))
-        elif 29 < adv_rank < 40:
+        elif usr_info == '30 to 39':
             drops = (range(0, 4), range(1, 4), range(0, 3), range(1))
-        elif 39 < adv_rank:
-            drops = (range(2, 4), range(0, 5), range(0, 4), range(0, 2))
         else:
-            return
+            drops = (range(2, 4), range(0, 5), range(0, 4), range(0, 2))
         return drops
 
-    def boss(self, adv_rank):
-        if adv_rank < 20: #WL 0
+    def boss(self, usr_info):
+        if usr_info == 0:
             drops = (range(1, 4), range(1), range(1), range(1))
-        elif 19 < adv_rank < 25: #WL 1
+        elif usr_info == 1:
             drops = (range(0, 3), range(1, 3), range(1), range(1))
-        elif 24 < adv_rank < 30: #WL 2
+        elif usr_info == 2:
             drops = (range(1, 3), range(1, 3), range(1), range(1))
-        elif 29 < adv_rank < 35: #WL 3
+        elif usr_info == 3:
             drops = (range(0, 3), range(1, 3), range(0, 2), range(1))
-        elif 34 < adv_rank < 40: #WL 4
+        elif usr_info == 4:
             drops = (range(0, 3), range(1, 4), range(0, 2), range(1))
-        elif 39 < adv_rank < 45: #WL 5
+        elif usr_info == 5:
             drops = (range(0, 4), range(1, 4), range(0, 2), range(0, 2))
-        elif 44 < adv_rank < 50: #WL 6
+        elif usr_info == 6:
             drops = (range(1, 4), range(1, 3), range(0, 2), range(0, 2))
-        elif 49 < adv_rank < 55: #WL 7
+        elif usr_info == 7:
             drops = (range(0, 4), range(1, 5), range(0, 2), range(0, 2))
-        elif 54 < adv_rank < 61: #WL 8
-            drops = (range(1, 3), range(1, 4), range(0, 2), range(0, 2))
         else:
-            return
+            drops = (range(1, 3), range(1, 4), range(0, 2), range(0, 2))
         return drops
 
     def report(self, drops, data, activity):
@@ -88,7 +82,11 @@ class ResourceConverterView(View):
                         else:
                             star5 = data['materials']['star5']
                             runs = self.counter(3, [l, k, j, i], [star2, star3, star4, star5], data['goal'])
-                        records.append(self.update_record([l, k, j, i], runs, activity))
+                        records.append(self.update_record(
+                            [l, k, j] if activity == 'Domain of Mastery' else [l, k, j, i],
+                            runs, activity
+                            )
+                        )
         return records
 
     def counter(self, rarity, drops, inventory, goal):

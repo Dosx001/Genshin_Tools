@@ -3,11 +3,34 @@ $(document).ready(function() {
 
     $('#ControlSelect').change(function() {
         var selection = $(this)[0].value;
+        var element = document.getElementById('label');
+        $('#usr_info').remove();
         if (selection == 'Domain of Mastery') {
             $('#5').remove();
             $('#extra').remove();
             $('#5star').remove();
-        } else if ($('#5')[0] == null) {
+            element.innerHTML = 'Adventure Rank'
+            $('#Activity').append('<select class="form-control" id="usr_info">' +
+                '<option>27</option><option>28 to 35</option>' +
+                '<option>36 to 44</option><option>+45</option>'
+            )
+        }
+        else if (selection == 'World Boss') {
+            element.innerHTML = 'World Level';
+            var section = '<select class="form-control" id="usr_info">';
+            for (i = 0; i < 9; i++) {
+                section += '<option>' + i + '</option>';
+            }
+            $('#Activity').append(section);
+        }
+        else {
+            element.innerHTML = 'Adventure Rank';
+            $('#Activity').append('<select class="form-control" id="usr_info">' +
+                '<option>16 to 20</option><option>21 to 29</option>' +
+                '<option>30 to 39</option><option>+40</option>'
+            )
+        }
+        if (selection != 'Domain of Mastery' && $('#5')[0] == null) {
             $('#Materials').append('<div class="input-group-prepend" id="extra">' +
                 '<span class="input-group-text">5&nbsp;' +
                 '<img src="/media/resource_converter/star.png"></span></div>' +
@@ -36,7 +59,7 @@ $(document).ready(function() {
             data: {
                 csrfmiddlewaretoken: csrfToken,
                 activity: selection,
-                adv_rank: $('#adv_rank')[0].value,
+                usr_info: $('#usr_info')[0].value,
                 data: JSON.stringify(request_data)
             },
             success: function(response) {
