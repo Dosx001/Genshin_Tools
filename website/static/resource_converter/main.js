@@ -34,7 +34,7 @@ $(document).ready(function() {
             $('#Materials').append('<div class="input-group-prepend" id="extra">' +
                 '<span class="input-group-text">5&nbsp;' +
                 '<img src="/media/resource_converter/star.png"></span></div>' +
-                '<input type="number" class="form-control" id="5" value="0">');
+                '<input type="number" min="0" class="form-control" id="5" value="0">');
             $('#rarity').append('<option id="5star">5</option>');
         }
     });
